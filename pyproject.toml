@@ -1,0 +1,35 @@
+[project]
+name = "kubecon-agenda-mcp"
+version = "0.1.0"
+description = "Read-only MCP server that lets AI agents search and plan a KubeCon + CloudNativeCon schedule, co-located events included"
+readme = "README.md"
+license = "Apache-2.0"
+authors = [{ name = "Ben Hirschberg" }]
+requires-python = ">=3.12"
+keywords = ["mcp", "kubecon", "cncf", "sessionize", "schedule", "agents"]
+dependencies = [
+    "httpx>=0.28.1",
+    "mcp>=2.3,<3",
+    "uvicorn>=0.54.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/slashben/kubecon-agenda-mcp"
+
+[project.scripts]
+kubecon-agenda-mcp = "kubecon_agenda_mcp.server:main"
+
+[build-system]
+requires = ["uv_build>=0.11.3,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "pytest-asyncio>=1.4.1.post1",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]

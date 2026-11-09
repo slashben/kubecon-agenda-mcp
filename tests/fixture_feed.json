@@ -1,0 +1,1814 @@
+{
+ "sessions": [
+  {
+   "id": "1289780",
+   "title": "Agentics Day: MCP + Agents Hosted by CNCF - Full Day Event | ALL ACCESS PASS REQUIRED",
+   "description": "Agentics Day: MCP + Agents event is a community-driven event dedicated to advancing the Model Context Protocol, an emerging standard for connecting AI models with external tools, data, and workflows. Join developers, contributors, and practitioners to explore real-world implementations, best practices, and the future of building richer, safer, and more capable AI applications with MCP.\r\n\r\nTo learn more please visit the event's website above.\r\n\r\nFor questions regarding this event, please reach out to cncfcolocatedevents@linuxfoundation.org.",
+   "startsAt": "2026-11-09T09:00:00",
+   "endsAt": "2026-11-09T17:30:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [],
+   "categoryItems": [
+    496574
+   ],
+   "questionAnswers": [
+    {
+     "questionId": 137006,
+     "answerValue": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/co-located-events/agentics-day-mcp-agents/"
+    }
+   ],
+   "roomId": 82948,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": false
+  },
+  {
+   "id": "1289762",
+   "title": "FluxCon Hosted by CNCF - Half Day Event | ALL ACCESS PASS REQUIRED",
+   "description": "FluxCon is the official community gathering for Flux users, contributors, and adopters, such as end-user organizations and service providers. As GitOps and continuous delivery continue to evolve as a core operating model for cloud native infrastructure, FluxCon provides a dedicated space to share best practices, real-world success stories, and deep technical knowledge around continuous delivery with Flux.\r\n\r\nTo learn more please visit the event's website above.\r\n\r\nFor questions regarding this event, please reach out to cncfcolocatedevents@linuxfoundation.org.",
+   "startsAt": "2026-11-09T09:00:00",
+   "endsAt": "2026-11-09T12:25:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [],
+   "categoryItems": [
+    496574
+   ],
+   "questionAnswers": [
+    {
+     "questionId": 137006,
+     "answerValue": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/co-located-events/fluxcon/"
+    }
+   ],
+   "roomId": 82950,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": false
+  },
+  {
+   "id": "1289773",
+   "title": "OpenTofu Day Hosted by CNCF - Half Day Event | ALL ACCESS PASS REQUIRED",
+   "description": "Join us for OpenTofu Day 2026, a dedicated day for the infrastructure-as-a-code community. We\u2019ll share a day all about OpenTofu, including migrations, technical details, panels, and new use cases. Don\u2019t miss this opportunity to learn, contribute, and join the OpenTofu community. \r\n\r\nTo learn more please visit the event's website above.\r\n\r\nFor questions regarding this event, please reach out to cncfcolocatedevents@linuxfoundation.org.",
+   "startsAt": "2026-11-09T13:25:00",
+   "endsAt": "2026-11-09T17:30:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [],
+   "categoryItems": [
+    496574
+   ],
+   "questionAnswers": [
+    {
+     "questionId": 137006,
+     "answerValue": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/co-located-events/opentofu-day/"
+    }
+   ],
+   "roomId": 82950,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": false
+  },
+  {
+   "id": "1250350",
+   "title": "Saturated by Design - Maximizing Cluster Allocation in On-Premises Kubernetes",
+   "description": "On-premises compute is inelastic, and the costs are mostly up-front. Yet workload demands and hardware health can change at any time. How do you make the most of your on-premises investments without risking capacity overruns and potential outages?\r\n\r\nWell, Karpenter and Cluster Autoscaler work great for right-sizing cloud. So what if we took their main principle and inverted it - scaling the workloads to fit the cluster instead?\r\n\r\nGetting there required rethinking how pods compete for space, and how cluster capacity is modeled. The Trade Desk tackled both with custom scheduler plugins and a new horizontal scaler. This talk covers the techniques, tradeoffs, and lessons learned along the way.",
+   "startsAt": "2026-11-10T11:30:00",
+   "endsAt": "2026-11-10T12:00:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "937b5e4c-c4a1-465d-beea-01cc7d134c75",
+    "20ae2b14-af36-4982-91ae-441d988fff53"
+   ],
+   "categoryItems": [
+    465812,
+    465819,
+    496398
+   ],
+   "questionAnswers": [
+    {
+     "questionId": 137003,
+     "answerValue": "https://sessionize.com/download/lzacsej~ssiTLYz6ZFMk7YCKsBnXyK.pdf~saturated-by-design.pdf"
+    }
+   ],
+   "roomId": 82948,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1246200",
+   "title": "Ask Your Platform: Putting AI to Work Where the Questions Live",
+   "description": "Every platform team has the same backlog: questions. Developers want to know what's happening in their namespace. On-call engineers want to know where to look first. The answers exist, just not fast.\r\n\r\nMost advice about AI starts with the technology. We started with the questions. We looked at where people already go for answers and put AI there, inside the work we were already doing. Investigations that used to take days now take hours.\r\n\r\nThis talk shows what that looked like in practice and how to spot the same opportunities on your own platform. You'll leave knowing where AI fits in platform engineering work, where it doesn't, and with the confidence to start. No AI background needed.",
+   "startsAt": "2026-11-10T11:30:00",
+   "endsAt": "2026-11-10T12:00:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "0cd8e308-e211-4c4c-9c7c-42c063d04ebd",
+    "a9f7c548-757f-4a6b-ac69-110a5d2558c2"
+   ],
+   "categoryItems": [
+    465809,
+    465822,
+    496398
+   ],
+   "questionAnswers": [
+    {
+     "questionId": 137003,
+     "answerValue": "https://sessionize.com/download/itwavpeu~KoQTNM1fhMA3oPAQZtwvvF.pdf~kubecon-ask-your-platform-pdf.pdf"
+    }
+   ],
+   "roomId": 82950,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1247249",
+   "title": "Mythos vs Maintainers: Drowning in the Vulnerability Tsunami",
+   "description": "Open source maintainers are facing a double assault. On one side, threat actors like TeamPCP are leveraging LLMs to scale attacks against well-known GitHub Actions misconfigurations, and propagating credential-stealing worms through ecosystems like PyPI and npm. On the other side, well-meaning security researchers are using those same LLMs to hunt for and report issues in good-faith, burying projects under a flood of (at times low-quality) vulnerability reports.\r\nIn this joint talk, we assume the roles of a combative offensive security researcher and a defensive open source maintainer to grapple with the tsunami of AI slop and irresponsible public disclosures using examples from in-toto\u2019s Witness project. We will:\r\n+ Recon: use LLMs for targeted vulnerability discovery and exploit writing\r\n+ Report: attempt to communicate & disclose the discovery\r\n+ Remediate: provide actionable solutions and actual code via private PRs\r\n+ Reinforce: use AI to proactively secure the project",
+   "startsAt": "2026-11-10T11:30:00",
+   "endsAt": "2026-11-10T12:00:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "aa66bd16-d91e-488f-8692-11c873c39e6a",
+    "58b969cb-a81d-4982-b9fc-fbd505ad62fa"
+   ],
+   "categoryItems": [
+    465814,
+    465822
+   ],
+   "questionAnswers": [],
+   "roomId": 82956,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1249997",
+   "title": "Surviving the Churn: Read Replicas and Controllers for Busy Kubernetes Clusters",
+   "description": "Kubernetes scales until it has to synchronize. Every write serializes through one ordered log, and every read funnels through lock-guarded caches: the apiserver's watch cache, and the informer caches inside every controller. Make the cluster busy enough (ceiling: ~10-16k mutations/s) and synchronization becomes the limit: caches lag, watchers get 410 Gone, and controllers reconcile against a world that no longer exists.\r\n\r\nThis talk is how Anthropic has improved Kubernetes stability by augmenting the control plane: in-cluster read replicas that take LIST and WATCH traffic off the apiserver, and controllers designed to stay functional at high mutation rates. The war story: the same innocuous LIST shape pushed a cluster of tens of thousands of nodes into an apiserver doom spiral twice in two weeks, from two different callers; only a read replica really fixes it. Along the way: what a stock controller does when its informer cache goes stale, and the data structures that avoid the trap.",
+   "startsAt": "2026-11-10T12:20:00",
+   "endsAt": "2026-11-10T12:50:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "4dffff7b-5850-44d6-9577-ccee0f74bdf4"
+   ],
+   "categoryItems": [
+    465812,
+    465819,
+    496398
+   ],
+   "questionAnswers": [
+    {
+     "questionId": 137003,
+     "answerValue": "https://sessionize.com/download/ipcaxtep~WnRxBpGVL9Geck4gJDe9aP.pdf~surviving-the-churn.pdf"
+    }
+   ],
+   "roomId": 82948,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1250865",
+   "title": "What the Docs Don't Tell You: A Telecom's Year Operating Cache-Aware LLM Inference on Kubernetes",
+   "description": "The maintainer talks tell you how cache-aware inference routing works. This talk tells you what happens after you adopt it and run a dozen live services on it for a year.\r\n\r\nA Korean telecom moved from a single RAG pipeline to production agents on Kubernetes, adopting the Gateway API Inference Extension and llm-d for KV-cache-aware routing. The architecture worked in the demo. Production was a different teacher: cache-hit cliffs under real traffic, a small-versus-large model cascade whose economics only appeared at scale, and the realization that promoting a routing policy needs the same evaluation gate as promoting a model.\r\n\r\nWe share the failure modes the docs omit, the small/large cascade cost numbers, the measured 40-50% time-to-first-token reduction on cache hits, how we wired evaluation into routing-policy promotion, and the operational signals that actually predicted trouble.",
+   "startsAt": "2026-11-10T12:20:00",
+   "endsAt": "2026-11-10T12:50:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "8f98a465-bed6-43c2-a48b-434eb9490b9b",
+    "7014e2b3-d703-465e-b0f7-5f38b6e6ea20"
+   ],
+   "categoryItems": [
+    465809,
+    465819,
+    496398
+   ],
+   "questionAnswers": [
+    {
+     "questionId": 137003,
+     "answerValue": "https://sessionize.com/download/itjafsew~hfh65a6hEfnjZYyzhZ4uEZ.pdf~kubeconna2026_what-the-docs-dont-tell-you.pdf"
+    }
+   ],
+   "roomId": 82950,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1250838",
+   "title": "If It's Shared, It's Vulnerable: Is Kubernetes the Right Platform for Confidential Compute?",
+   "description": "Confidential computing can verify a Kubernetes workload launched with expected measurements, but it cannot verify the entire sharing topology beneath it. Kubernetes still shares control planes, schedulers, kernels, image layers, nodes, devices, caches, buses, and roots of trust across tenants.\r\nThis talk builds a Kubernetes-specific threat model for confidential workloads: where attestation helps, where it stops, and which risks are patchable bugs versus structural consequences of sharing. Attendees learn a practical three-tier isolation model: shared namespaces and nodes; per-tenant control planes with dedicated node pools; and dedicated clusters per tenant.\r\nThe goal isn't to argue that Kubernetes is the wrong platform for confidential computing. It's to help platform and security teams ask the right questions before calling a deployment confidential: who is shared with whom, what is actually verified, and which gaps require topology changes rather than more cryptography.",
+   "startsAt": "2026-11-10T12:20:00",
+   "endsAt": "2026-11-10T12:50:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "4d2a68f8-5859-49d1-9caa-e488d11baa9b"
+   ],
+   "categoryItems": [
+    465814,
+    465819
+   ],
+   "questionAnswers": [
+    {
+     "questionId": 137003,
+     "answerValue": "https://sessionize.com/download/zcakzeq~X6tW9ZxNxpwdNRheZbBS1j.pdf~kc-na-26.pdf"
+    }
+   ],
+   "roomId": 82956,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1239823",
+   "title": "Tracing at Scale: Running a 16 Billion Spans/Hour Pipeline at Nubank",
+   "description": "When off-the-shelf solutions stop scaling, you build your own or break trying.\r\n\r\nAt Nubank, distributed tracing isn't a nice-to-have: it's the backbone of observability across thousands of microservices, processing hundreds of billions of spans every day with zero tolerance for data loss. When the need for full ownership and operational independence became clear, we built a hybrid pipeline from the ground up.\r\n\r\nThis talk walks through the full tracing journey at Nubank,  from instrumentation strategy to a production-grade pipeline operating at petabyte scale. We'll cover how the OpenTelemetry Collector serves as our ingestion backbone, the architectural decisions that made the system resilient, the failure modes we didn't anticipate, and the hard-learned trade-offs behind blending open-source tooling with purpose-built internal components.\r\n\r\nYou'll leave with a realistic picture of what it takes to run distributed tracing at scale.",
+   "startsAt": "2026-11-10T14:50:00",
+   "endsAt": "2026-11-10T15:20:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "9ba8c31d-7477-447c-bab5-b1ae22c4515f",
+    "6cda2c92-e3df-4859-ad35-e773a871fa1c"
+   ],
+   "categoryItems": [
+    465815,
+    465822,
+    496398
+   ],
+   "questionAnswers": [
+    {
+     "questionId": 137003,
+     "answerValue": "https://sessionize.com/download/cbapxeod~MvuVzKGoBKpZXwEKHsJ5oo.pdf~tracing-at-scale.pdf"
+    }
+   ],
+   "roomId": 82948,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1205589",
+   "title": "Turning Apple Silicon into Production GPU Nodes for LLM Inference on Kubernetes",
+   "description": "Organizations in regulated industries need AI inference on infrastructure they control, but NVIDIA GPUs are expensive and scarce. Apple Silicon devices with large unified memory pools sit underutilized.\r\n\r\nThis talk shows how we extended Kubernetes to schedule AI inference across heterogeneous GPU hardware, including Apple Silicon via Metal, using pluggable runtime backends. We cover a controller-runtime operator managing model lifecycle, multi-GPU layer sharding, and health probing across runtimes like llama.cpp for text generation and Moshi for speech-to-speech.\r\n\r\nAttendees learn patterns for reconciling inference workloads with CRDs, pre-flight memory validation for GPU nodes, Prometheus metrics via PodMonitors, and multi-runtime inference behind an OpenAI-compatible API. We share benchmarks comparing NVIDIA CUDA and Apple Silicon Metal and the operational tradeoffs of each.\r\n\r\nA practitioner talk from an enterprise platform engineering team deploying on-prem AI inference at scale.",
+   "startsAt": "2026-11-10T14:50:00",
+   "endsAt": "2026-11-10T15:20:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "f418c733-e838-4862-b077-d3be1490aef9"
+   ],
+   "categoryItems": [
+    465809,
+    465819,
+    496398
+   ],
+   "questionAnswers": [
+    {
+     "questionId": 137003,
+     "answerValue": "https://sessionize.com/download/joqsao~MZuw9pocnf6Csqn7o5jqdJ.pdf~kubecon-na-2026-apple-silicon.pdf"
+    }
+   ],
+   "roomId": 82950,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1236746",
+   "title": "Gone in 60 Minutes: Effectively Close the Exploitable Window with Detection as Code",
+   "description": "Platform teams have shift-left covered: scanners on every PR, admission control on every deploy, SBOM+VEXs on every image. Then a high-severity CVE drops with \"patch coming soon,\" and all of it goes quiet for days while a known-exploitable workload sits in production. This is the most uncomfortable corner of day-2 on Kubernetes, and most teams have no declarative answer for it.\r\n\r\nWe'll show how Kubescape, the CNCF incubating project for Kubernetes security, makes runtime detection a Kubernetes resource: a Rule CRD you review in a PR, version in Git, deploy via Argo or Flux, and roll back like any other manifest. Using the TeamPCP Trivy compromise as an example, we'll cover what the eBPF sensor sees, how to turn an advisory/IoC into a Rule CRD live on stage, how SBOB profiles keep the signal trustworthy, and a CI/CD workflow that gets from \"CVE published\" to \"rule deployed\" in under an hour. For platform engineers, SREs, app developers, and security teams alike.",
+   "startsAt": "2026-11-10T14:50:00",
+   "endsAt": "2026-11-10T15:20:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "19244dcc-c4bd-4cde-8c70-d51e03387296",
+    "d95e7cb7-6808-4b46-a925-76a9f41d9d01"
+   ],
+   "categoryItems": [
+    465814,
+    465822
+   ],
+   "questionAnswers": [],
+   "roomId": 82956,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1250770",
+   "title": "The SRE Is Not Dead: What AI Taught Us about Missing Context in Kubernetes Incident Response",
+   "description": "We introduced AI-assisted incident response into a large-scale financial services platform running on OpenShift and Kubernetes expecting faster resolutions and less engineer toil. Instead, we discovered the biggest bottleneck wasn't signal analysis\u2014it was missing operational context.\r\n\r\nAI could detect CPU spikes and latency increases, but it couldn't know a deployment had occurred 20 minutes earlier, a service owner had changed, or an upstream dependency was degrading. That gap led to poor prioritization and engineers chasing the wrong signals during incidents.\r\n\r\nThis session shares how we rebuilt incident response using OpenTelemetry, Argo CD, Prometheus, Grafana, and Backstage to combine telemetry, deployment intelligence, and service ownership into a single workflow.\r\n\r\nAttendees will learn practical patterns for building context-aware incident response on Kubernetes, reducing alert fatigue, and improving operational decision-making beyond prediction-based tooling.",
+   "startsAt": "2026-11-10T15:40:00",
+   "endsAt": "2026-11-10T16:10:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "6a21b47b-fd5d-4ea3-a4af-88557553cd14",
+    "7d6ad978-44fd-42d7-9e63-fbfb230c84a1"
+   ],
+   "categoryItems": [
+    465815,
+    465822,
+    496398
+   ],
+   "questionAnswers": [
+    {
+     "questionId": 137003,
+     "answerValue": "https://sessionize.com/download/ixdansem~3kzrWssu5xxerSXGZjjTLy.pdf~the-sre-is-not-dead-for-employer-review.pptx.pdf"
+    }
+   ],
+   "roomId": 82948,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1208416",
+   "title": "Transforming Retail with AI: From Automation to Autonomous Decisioning",
+   "description": "Artificial Intelligence is reshaping retail by enabling a shift from traditional automation to autonomous decision-making systems. This talk explores how modern retail organizations leverage AI, real-time data pipelines, and cloud-native architectures to transform data into actionable intelligence.\r\n\r\nThe session highlights the evolution from batch-based processing to event-driven systems, where AI models are integrated into operational workflows to support real-time decisions in areas such as pricing, supply chain, and customer analytics. It also discusses key architectural patterns, including streaming data platforms and intelligent automation frameworks.\r\n\r\nThrough practical insights and real-world examples, the talk demonstrates how autonomous decisioning improves efficiency, scalability, and customer experience. It also addresses challenges related to data governance, observability, and responsible AI adoption, providing a roadmap for building future-ready retail systems.",
+   "startsAt": "2026-11-10T15:40:00",
+   "endsAt": "2026-11-10T16:10:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "378aff38-4a7c-4d2e-87b3-89b5f895717a"
+   ],
+   "categoryItems": [
+    465809,
+    465820,
+    496398
+   ],
+   "questionAnswers": [],
+   "roomId": 82950,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1245768",
+   "title": "From Disk to Defense: Kubernetes Admission Policies the API Can't Touch",
+   "description": "Imagine this: you've locked down your Kubernetes cluster with admission webhooks and ValidatingAdmissionPolicies. Life is great, until someone runs \"kubectl delete validatingwebhookconfiguration\" and your entire policy layer vanishes. That's the catch: the thing enforcing your security rules can be deleted by the very API it's supposed to protect. Your policies don't exist during bootstrap either, and they disappear if etcd goes down.\r\n\r\nWhat if you could load those same webhooks and policies from files on disk, active before the API server serves its very first request, and invisible to the REST API? Even better, what if they could protect admission resources themselves, something REST-based policies were never allowed to do?\r\n\r\nIn this session, we'll show how Manifest-Based Admission Control (k8s.dev/resources/keps/5793) works, live-demo an attacker deleting critical policies and getting stopped cold, and share patterns for shipping tamper-proof configs across your fleet.",
+   "startsAt": "2026-11-10T15:40:00",
+   "endsAt": "2026-11-10T16:10:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "ae883aa9-5dcd-401e-b980-7c603e1b00d6",
+    "4e3c2804-6af8-4ff9-9f37-f0584fdf513f"
+   ],
+   "categoryItems": [
+    465814,
+    465819
+   ],
+   "questionAnswers": [],
+   "roomId": 82956,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1247858",
+   "title": "The Promises We Keep at Scale: A Contract-Driven Guide to Platform SLOs",
+   "description": "Monitoring a Kubernetes platform with 2M+ containers exposes the limits of standard tools. Most setups track internal controller machinery, ignoring user friction. Teams outgrowing kube-state-metrics often build custom metrics focused on internal mechanics rather than user experience, producing noise instead of insight.\r\n\r\nEffective platform observability needs to measure the promises made to developers.\r\n\r\nThis session designs an SLO framework unified across stateless and stateful workloads using a contract-driven model. Learn to distill thousands of data points into 3\u20134 critical metrics that drove our operations this past year. We track workload readiness alongside pod-lifecycle signals (init-container latency, image download waits, terminating stalls) to isolate infrastructure faults from user errors before a page fires. This continues KubeCon NA 2025 (\"Making Application Rollouts Observable, Actionable, and Boring\"), moving from rollout signals to platform-wide promises.",
+   "startsAt": "2026-11-10T16:40:00",
+   "endsAt": "2026-11-10T17:10:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "ac6d22ca-693b-4e27-a7a1-3bc458cbad34",
+    "1a6c8c7d-d6b8-4159-be56-7fc582ddd2e3"
+   ],
+   "categoryItems": [
+    465815,
+    465822,
+    496398
+   ],
+   "questionAnswers": [
+    {
+     "questionId": 137003,
+     "answerValue": "https://sessionize.com/download/ifrawseu~S7MycsmitiCXFjHx43MWuW.pdf~the_promises_we_keep_at_scale_-_preview.pdf"
+    }
+   ],
+   "roomId": 82948,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1240912",
+   "title": "Zero-Gap GPU Execution: Building Secure, Pre-Warmed Pod Runtimes for High-Velocity AI Agents",
+   "description": "The rise of AI agents is breaking traditional ML infrastructure. While human experimentation is measured in hours, agents researching new model architectures and running hyperparameter sweeps shrink this to minutes. When running 24/7, Kubernetes pod spin-up times and GPU bottlenecks hinder agentic velocity.\r\nIn this talk, we\u2019ll explore how to build high-velocity agentic infrastructure using Kubernetes, Volcano, and HAMi. We\u2019ll cover techniques including:\r\n\r\n- No-Gap GPU Execution: \"Firepool\", maintaining warm GPU pods for near-instant launches including zero gap job launches on GPUs.\r\n- Secure Agentic Harness: A workflow based Sidecar pattern isolating untrusted AI logic from credentials.\r\n- Fault-Tolerant Persistence: Mechanisms to recover state if an agent pod gets disrupted.\r\n- Cross-Run Agent Memory: Shared context patterns injecting state across multiple agent runs.\r\n\r\nAttendees will leave with strategies to scale 24/7 agentic K8s workloads",
+   "startsAt": "2026-11-10T16:40:00",
+   "endsAt": "2026-11-10T17:10:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "d4696fdf-6374-49ff-894f-f12df4ba72c0",
+    "a78834bd-ba2f-403c-bf37-4667ed47a773"
+   ],
+   "categoryItems": [
+    465809,
+    465822,
+    496398
+   ],
+   "questionAnswers": [],
+   "roomId": 82950,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1239772",
+   "title": "Five Stages of Kubernetes Security Grief",
+   "description": "Everyone in this room has been through it. Maybe you're in it right now.\r\nDenial: \"Our namespace isolation is fine.\" Anger: \"Why does everything touch the kernel?\" Bargaining: \"What if we just add a Pod Security Policy?\" Depression: \"The CVE dropped on a Friday.\" Acceptance: You can't bolt on isolation; you have to build it in from the start.\r\nThis talk is a dual-perspective journey through the 5 stages of K8s security grief. Kavi brings the kernel-level technical reality: the shared surfaces, the subsystems nobody's watching, the failures that leave no CVE and no alert. Ann brings what folks actually say: the rationalizations, the moment the mental model breaks.\r\nIt's structured as a comedy, but the content is real. Every stage maps to genuine failure modes, real conversations, and the hard lessons that only land after you've done the grieving. Attendees will leave with a more honest picture of where Kubernetes isolation holds, where it doesn't, and what it actually takes to accept that.",
+   "startsAt": "2026-11-10T16:40:00",
+   "endsAt": "2026-11-10T17:10:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "b57a1fbb-11ac-4ccc-b50f-e3245e901897",
+    "e86f6174-06fd-41e6-bb59-79fcbb22a46a"
+   ],
+   "categoryItems": [
+    465814,
+    465822
+   ],
+   "questionAnswers": [],
+   "roomId": 82956,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1248216",
+   "title": "Two-Stage OTel Aggregation: Taming Istio Cardinality at 10k-Pod Scale",
+   "description": "OTel's metricstransform docs say it's \"not suitable for aggregating metrics from multiple sources (e.g. multiple nodes)\" \u2014 yet mitigating Istio cardinality requires exactly that. On our 10k-pod, 374-node mesh, Istio emits 2M+ active series even off-peak; PromQL projects an ~86% cut (2.06M\u2192280K) once per-pod identity is collapsed.\r\n\r\nWe bypassed the constraint with a two-stage OTel architecture, in production:\r\n- Stage 1 (DaemonSet): per-node OTTL stripping of pod-level identifiers to collapse series at the edge.\r\n- Stage 2 (Gateway): cross-node aggregation bounding each service to the gateway replica count (\u226450), not thousands of pods, using query-time sum() for autoscaling stability.\r\n- Verification: a low-risk shadow pipeline validated against live traffic before cutover.\r\n\r\nLeave with a portable blueprint and hard-won pitfalls: groupbyattrs no-ops, gateway re-enrichment undoing Stage 1, autoscaling fan-out, and silent collector regressions.",
+   "startsAt": "2026-11-10T17:30:00",
+   "endsAt": "2026-11-10T18:00:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "e0019003-e7b8-45b8-a39e-57374ad219ba"
+   ],
+   "categoryItems": [
+    465815,
+    465819,
+    496398
+   ],
+   "questionAnswers": [
+    {
+     "questionId": 137003,
+     "answerValue": "https://sessionize.com/download/imrafmef~aq3VtVSMa9nB84kBaJKK83.pdf~kubecon-istio-cardinality-final.pdf"
+    }
+   ],
+   "roomId": 82948,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1244695",
+   "title": "When the Agent Lost Its Patience: Securing Cloud-Native AI Workflows Against Identity Leakage",
+   "description": "As organizations race to integrate long-running AI agents into their platform engineering and continuous integration (CI/CD) pipelines, they open a new frontier of security vulnerabilities: identity leakage. What happens when an autonomous AI agent is given elevated API privileges and the patience to bypass human latency?\r\n\r\nThis presentation dissects a real-world production incident where an autonomous coding agent bypassed branch protection rules and executed unauthorized force-merges directly into protected branches.\r\n\r\nAttendees will walk away with concrete architectures for securing AI platform integrations, establishing absolute identity isolation, and enforcing the principle of least privilege for autonomous internal tools.",
+   "startsAt": "2026-11-10T17:30:00",
+   "endsAt": "2026-11-10T18:00:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "a7d99deb-e216-406d-96c3-4e542e0a0b2a"
+   ],
+   "categoryItems": [
+    465809,
+    465822,
+    496398
+   ],
+   "questionAnswers": [
+    {
+     "questionId": 137003,
+     "answerValue": "https://sessionize.com/download/ltahxeu~EtBNxPUkuyDnuPWK3QdZC6.pdf~kubecon-us-2026-when-the-agent-lost-its-patience.pdf"
+    }
+   ],
+   "roomId": 82950,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  }
+ ],
+ "speakers": [
+  {
+   "id": "7d6ad978-44fd-42d7-9e63-fbfb230c84a1",
+   "firstName": "Ajmal",
+   "lastName": "Ali kannu",
+   "bio": "Ajmal Ali kannu is a Senior Full Stack Engineer focused on building resilient, high-scale systems in the financial domain. He has worked extensively with open source technologies to design and deliver",
+   "tagLine": "Ajmal",
+   "profilePicture": "https://cdn.sessionize.com/image/3369-400o400o1-7dLRdNmV1X5LuCedjV84rp.jpg",
+   "isTopSpeaker": false,
+   "links": [],
+   "sessions": [
+    1250770
+   ],
+   "fullName": "Ajmal Ali kannu",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "Self"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Principal Application Engineer "
+    }
+   ]
+  },
+  {
+   "id": "ae883aa9-5dcd-401e-b980-7c603e1b00d6",
+   "firstName": "Anish",
+   "lastName": "Ramasekar",
+   "bio": "Anish Ramasekar is a software engineer at Microsoft, where he works on the Azure Container Upstream team building features for Kubernetes upstream and various CNCF projects that power Azure Kubernetes",
+   "tagLine": "Principal Software Engineer, Microsoft",
+   "profilePicture": "https://cdn.sessionize.com/image/dec1-400o400o1-BYhGPdQdjc1da3SeomTSFH.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "X (Twitter)",
+     "url": "https://twitter.com/AnishRamasekar",
+     "linkType": "Twitter"
+    },
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/anishramasekar/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://microsoft.com",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "GitHub",
+     "url": "https://github.com/aramase",
+     "linkType": "Other"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/anish-ramasekar",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1245768
+   ],
+   "fullName": "Anish Ramasekar",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "Microsoft"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Principal Software Engineer"
+    }
+   ]
+  },
+  {
+   "id": "d4696fdf-6374-49ff-894f-f12df4ba72c0",
+   "firstName": "Ankit",
+   "lastName": "Goyal",
+   "bio": "Ankit Goyal is a Principal Engineer on the LinkedIn AI Platform team, where he focuses on the Agentic platform and leads core GPU efficiency efforts for the model training platform. A veteran of Linke",
+   "tagLine": "LinkedIn, AI Platform, Principal Staff Software Engineer",
+   "profilePicture": "https://cdn.sessionize.com/image/5e1c-400o400o1-VxSHFxyfVa1yTgDbEDTdF6.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/goyalankit3",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://linkedin.com",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/ankit-goyal",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1240912
+   ],
+   "fullName": "Ankit Goyal",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "LinkedIn"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Principal Staff Software Engineer"
+    }
+   ]
+  },
+  {
+   "id": "b57a1fbb-11ac-4ccc-b50f-e3245e901897",
+   "firstName": "Ann",
+   "lastName": "Wallace",
+   "bio": "Ann Wallace is the Chief Adventure Officer at Girls Gone Wildwood, where she can be found seeking type 2 fun adventures in the PNW. Before becoming a full time dirtbag with her dog Cedar, she held lea",
+   "tagLine": "purveyor of type 2 fun",
+   "profilePicture": "https://cdn.sessionize.com/image/9a2e-400o400o1-B2zCt211a1kVVGDJsBB5cG.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/annnwallace/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://edera.dev",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/annerz",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1239772
+   ],
+   "fullName": "Ann Wallace",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "Girls Gone Wildwood"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Chief Adventure Officer"
+    }
+   ]
+  },
+  {
+   "id": "0cd8e308-e211-4c4c-9c7c-42c063d04ebd",
+   "firstName": "Anton",
+   "lastName": "Alexander",
+   "bio": "Anton Alexander is a Platform Engineer focused on developer experience. He works on Kubernetes offerings running on public and private clouds that power business-critical software at scale, with an em",
+   "tagLine": "Platform Engineer",
+   "profilePicture": "https://cdn.sessionize.com/image/d4f0-400o400o1-U3CbEZhr5t9oUM96fFUAHZ.png",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/anton--alexander/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://www.t-mobile.com/",
+     "linkType": "Company_Website"
+    }
+   ],
+   "sessions": [
+    1246200
+   ],
+   "fullName": "Anton Alexander",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "Independent"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Platform Engineer"
+    }
+   ]
+  },
+  {
+   "id": "378aff38-4a7c-4d2e-87b3-89b5f895717a",
+   "firstName": "Arunkumar",
+   "lastName": "Amaran",
+   "bio": "Senior Software Engineering Leader with over 19 years of industry experience leading large-scale technology and data transformation initiatives, primarily within complex retail and enterprise environm",
+   "tagLine": "Macys, Tech Manager, Data Engineering and Architecture",
+   "profilePicture": "https://cdn.sessionize.com/image/1284-400o400o1-9dHPR83P2PnBnbzHyZdPVT.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/arunkumar-amaran/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Blog",
+     "url": "https://dev.to/amaranarun/beyond-monitoring-building-ai-powered-predictive-observability-for-retail-data-pipelines-published-g43",
+     "linkType": "Blog"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://www.macys.com",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/arunkumar-amaran",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1208416
+   ],
+   "fullName": "Arunkumar Amaran",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "Macys System and Technology"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Technology Manager"
+    }
+   ]
+  },
+  {
+   "id": "19244dcc-c4bd-4cde-8c70-d51e03387296",
+   "firstName": "Ben",
+   "lastName": "Hirschberg",
+   "bio": "Ben is a veteran cybersecurity and DevOps professional, as well as computer science lecturer. Today, he is the co-founder at ARMO, with a vision of making end-to-end Kubernetes security simple for eve",
+   "tagLine": "CTO & Co-Founder, ARMO",
+   "profilePicture": "https://cdn.sessionize.com/image/c7f4-400o400o1-n4UMLi8wH3uDpNt5WbLLB5.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "X (Twitter)",
+     "url": "https://twitter.com/slashben81",
+     "linkType": "Twitter"
+    },
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/ben-hirschberg-66141890",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Blog",
+     "url": "https://armosec.io/blog",
+     "linkType": "Blog"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://armosec.io/",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/slashben",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1236746
+   ],
+   "fullName": "Ben Hirschberg",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "ARMO"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Maintainer/CTO"
+    }
+   ]
+  },
+  {
+   "id": "4e3c2804-6af8-4ff9-9f37-f0584fdf513f",
+   "firstName": "Benjamin",
+   "lastName": "Elder",
+   "bio": "Benjamin Elder is a Senior Software Engineer at Google working on Kubernetes. Ben is a long time contributor to the project since writing kube-proxy's iptables mode for GSoC 2015 and is an elected mem",
+   "tagLine": "Senior Software Engineer at Google",
+   "profilePicture": "https://cdn.sessionize.com/image/f5d8-400o400o1-W6ejSjoMt7SrVbhyMoWUW4.jpeg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/bentheelder",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Blog",
+     "url": "https://elder.dev",
+     "linkType": "Blog"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://elder.de",
+     "linkType": "Company_Website"
+    }
+   ],
+   "sessions": [
+    1245768
+   ],
+   "fullName": "Benjamin Elder",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "Google"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Staff Software Engineer"
+    }
+   ]
+  },
+  {
+   "id": "f418c733-e838-4862-b077-d3be1490aef9",
+   "firstName": "Christopher",
+   "lastName": "Maher",
+   "bio": "Christopher Maher is Director of Platform Engineering at Ashley Furniture Industries, where he leads an AI Ops team building on-prem inference infrastructure across NVIDIA and Apple Silicon clusters. ",
+   "tagLine": "Director of AI/ML Operations, Ashley Furniture Industries | Creator of LLMKube",
+   "profilePicture": "https://cdn.sessionize.com/image/6aca-400o400o1-Qvp4jfZUoCQqeoXcNc11JS.png",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://linkedin.com/in/mahercode",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://ashley.com",
+     "linkType": "Company_Website"
+    }
+   ],
+   "sessions": [
+    1205589
+   ],
+   "fullName": "Christopher Maher",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "Ashley Furniture Industries"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Director of AI/ML Operations"
+    }
+   ]
+  },
+  {
+   "id": "a78834bd-ba2f-403c-bf37-4667ed47a773",
+   "firstName": "Cong",
+   "lastName": "Gu",
+   "bio": "Frank is a manager at LinkedIn's AI Training Platform team. He has presented LinkedIn's AI platform in multiple settings both internally and externally (including Kubecon).",
+   "tagLine": "LinkedIn, AI Platform, Manager",
+   "profilePicture": "https://cdn.sessionize.com/image/6dfd-400o400o1-aFLNiMBxca4Zb8ijBd1c3G.jpeg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/frank-cong-gu-1059838b/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://www.linkedin.com/",
+     "linkType": "Company_Website"
+    }
+   ],
+   "sessions": [
+    1240912
+   ],
+   "fullName": "Cong Gu",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "LinkedIn"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Manager, AI Infra"
+    }
+   ]
+  },
+  {
+   "id": "937b5e4c-c4a1-465d-beea-01cc7d134c75",
+   "firstName": "Dakota",
+   "lastName": "Sullivan",
+   "bio": "Dakota is a staff engineer at The Trade Desk specializing in Kubernetes, and has been building container and cloud infrastructure for 9 years.",
+   "tagLine": "Staff Software Engineer @ The Trade Desk",
+   "profilePicture": "https://cdn.sessionize.com/image/3b1e-400o400o1-3kuCQyrmhNHJ5S6grenvtF.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://linkedin.com/in/dqsully",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://www.thetradedesk.com/",
+     "linkType": "Company_Website"
+    }
+   ],
+   "sessions": [
+    1250350
+   ],
+   "fullName": "Dakota Sullivan",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "The Trade Desk"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Staff Software Engineer"
+    }
+   ]
+  },
+  {
+   "id": "d95e7cb7-6808-4b46-a925-76a9f41d9d01",
+   "firstName": "Dr. Constanze",
+   "lastName": "Roedig",
+   "bio": "Develops FOSS tools and methods to effectively defend critical infrastructure using modern tech. Builds algorithms for sovereignty, understanding and long term sustainability.\r\n\r\nConstanze is a physic",
+   "tagLine": "Key Researcher, Founder, CNCF Ambassador",
+   "profilePicture": "https://cdn.sessionize.com/image/f826-400o400o1-VkBKEQA7CX9QL9qhD1Vh5E.png",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/croedig/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Blog",
+     "url": "https://billofbehavior.com",
+     "linkType": "Blog"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://fusioncore.ai",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "SBOB spec",
+     "url": "https://billofbehavior.com/bob/docs/spec/",
+     "linkType": "Other"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/constanze-roedig",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1334787,
+    1236746
+   ],
+   "fullName": "Dr. Constanze Roedig",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "fusioncore.ai"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Key Researcher, Founder, CNCF Ambassador"
+    }
+   ]
+  },
+  {
+   "id": "e0019003-e7b8-45b8-a39e-57374ad219ba",
+   "firstName": "Evelyn (Chungyu)",
+   "lastName": "Chen",
+   "bio": "Evelyn (Chungyu) Chen brings 10+ years of production engineering experience at Yahoo, with a track record of driving resilience for iconic platforms including Yahoo Frontpage, Finance, Sports, and pio",
+   "tagLine": "Sustaining Excellence: From Visibility to Savings, the Evolution of Production Engineering",
+   "profilePicture": "https://cdn.sessionize.com/image/534a-400o400o1-KVFJbphBekx3RdJ9e5qsGE.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/evelyn-chungyu-chen",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1248216
+   ],
+   "fullName": "Evelyn (Chungyu) Chen",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "Yahoo"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Princ Production Engineer"
+    }
+   ]
+  },
+  {
+   "id": "aa66bd16-d91e-488f-8692-11c873c39e6a",
+   "firstName": "Fabian",
+   "lastName": "Kammel",
+   "bio": "Fabian Kammel is a Senior Security Consultant at ControlPlane, where he helps to make the (cloud-native) world a safer place. His goal is to bring hardware security and cloud-native security closer to",
+   "tagLine": "Senior Security Consultant, ControlPlane",
+   "profilePicture": "https://cdn.sessionize.com/image/f353-400o400o1-Ha82x8HfxR8WqftWn4Jw8V.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "X (Twitter)",
+     "url": "https://twitter.com/datosh18",
+     "linkType": "Twitter"
+    },
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/fabian-kammel-7781b7173/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://control-plane.io/",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/fabian-kammel",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1247249,
+    1364875
+   ],
+   "fullName": "Fabian Kammel",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "ControlPlane"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Principal Security Consultant"
+    }
+   ]
+  },
+  {
+   "id": "9ba8c31d-7477-447c-bab5-b1ae22c4515f",
+   "firstName": "Felipe",
+   "lastName": "Araujo",
+   "bio": "Lead software engineer with experience building highly scalable applications in complex scopes, having worked on diverse projects across fintechs and other industries, with a wide range of technologie",
+   "tagLine": "Technical Lead at Nubank's Observability team",
+   "profilePicture": "https://cdn.sessionize.com/image/7135-400o400o1-LCH1Sqxj5qAY2Q72aYyB25.png",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/felipearaujos/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://international.nubank.com.br/about/",
+     "linkType": "Company_Website"
+    }
+   ],
+   "sessions": [
+    1239823
+   ],
+   "fullName": "Felipe Araujo",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "Nubank"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Lead Software Engineer"
+    }
+   ]
+  },
+  {
+   "id": "20ae2b14-af36-4982-91ae-441d988fff53",
+   "firstName": "Isaac",
+   "lastName": "Wilson",
+   "bio": "Isaac is a Staff Software Engineer at The Trade Desk specializing in distributed systems and networking. He led a global scale migration for The Trade Desk\u2019s Load Balancing infrastructure from bare-me",
+   "tagLine": "The Trade Desk, Staff Software Engineer",
+   "profilePicture": "https://cdn.sessionize.com/image/28f0-400o400o1-sozAhEhxHgoaK8pymbQ6DE.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "Company Website",
+     "url": "https://thetradedesk.com",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/isaac-wilson",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1250350,
+    1334797
+   ],
+   "fullName": "Isaac Wilson",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "The Trade Desk"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Staff Software Engineer"
+    }
+   ]
+  },
+  {
+   "id": "58b969cb-a81d-4982-b9fc-fbd505ad62fa",
+   "firstName": "John",
+   "lastName": "Kjell",
+   "bio": "John is an Engineering Manager at Docker, building an agentic software factory to patch all the things. Previously at ControlPlane, he helped security-conscious organizations build and assure mission-",
+   "tagLine": "Engineering Manager - Docker",
+   "profilePicture": "https://cdn.sessionize.com/image/06ec-400o400o1-GJ8vKrsPWj58AWAYprkqvR.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/john-kjell/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://www.control-plane.io",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/john-kjell",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1247249
+   ],
+   "fullName": "John Kjell",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "Docker"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Engineering Manager"
+    }
+   ]
+  },
+  {
+   "id": "e86f6174-06fd-41e6-bb59-79fcbb22a46a",
+   "firstName": "Kavitha",
+   "lastName": "Daula",
+   "bio": "Kavitha Daula is the VP of Engineering at Edera, where she leads the development of secure, high-performance container runtime technologies. Previously, she was Senior Director at GEICO, driving innov",
+   "tagLine": "VP of Engineering, Edera",
+   "profilePicture": "https://cdn.sessionize.com/image/7392-400o400o1-PN2MDqZ6xzZ692Py1BG97o.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/kavithadaula/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://eder.dev/",
+     "linkType": "Company_Website"
+    }
+   ],
+   "sessions": [
+    1239772
+   ],
+   "fullName": "Kavitha Daula",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "Edera "
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "VP of Engineering "
+    }
+   ]
+  },
+  {
+   "id": "6cda2c92-e3df-4859-ad35-e773a871fa1c",
+   "firstName": "Kaynan",
+   "lastName": "Coelho",
+   "bio": "Kaynan is a Brazilian Engineering Manager at Nubank, based in Fortaleza, Cear\u00e1. He leads teams responsible for large-scale data and observability platforms processing petabytes of telemetry data daily",
+   "tagLine": "Engineering Manager at Nubank",
+   "profilePicture": "https://cdn.sessionize.com/image/f3f2-400o400o1-NnoYwoa5Bb2FHese2XEEeJ.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/kaynancl/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://international.nubank.com.br/about/",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/kaynan-coelho",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1239823
+   ],
+   "fullName": "Kaynan Coelho",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "Nubank"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Engineering Manager"
+    }
+   ]
+  },
+  {
+   "id": "6a21b47b-fd5d-4ea3-a4af-88557553cd14",
+   "firstName": "Muhammed Yunas",
+   "lastName": "Chirayath",
+   "bio": "Muhammed Yunas Chirayath is a Site Reliability Engineer with production experience building and operating large-scale platforms on OpenShift and Kubernetes. He specializes in observability strategy, c",
+   "tagLine": "Best Buy, Principle Site Reliability Engineer",
+   "profilePicture": "https://cdn.sessionize.com/image/ee2f-400o400o1-QTBTdZL3m5r7A4XsRsKP39.png",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/muhammedyunas_chirayath",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1250770
+   ],
+   "fullName": "Muhammed Yunas Chirayath",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "Best Buy"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Staff Site Reliability Engineer"
+    }
+   ]
+  },
+  {
+   "id": "a7d99deb-e216-406d-96c3-4e542e0a0b2a",
+   "firstName": "Pablo",
+   "lastName": "Fredrikson",
+   "bio": "Principal SRE at Bitso and CNCF Ambassador. Working in the field since 2006, working with containers and Kubernetes in production since 2018. Content creator in YouTube and passionate about Open Sourc",
+   "tagLine": "Principal SRE at Bitso & YouTuber",
+   "profilePicture": "https://cdn.sessionize.com/image/8c22-400o400o1-JcPnGdZJMESoLW8E5sNsCK.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "X (Twitter)",
+     "url": "https://twitter.com/PeladoNerd",
+     "linkType": "Twitter"
+    },
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/pablofredrikson/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Instagram",
+     "url": "https://instagram.com/pelado.nerd",
+     "linkType": "Instagram"
+    },
+    {
+     "title": "Blog",
+     "url": "https://peladonerd.com",
+     "linkType": "Blog"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://www.bitso.com/",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/pablo-fredrikson",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1244695
+   ],
+   "fullName": "Pablo Fredrikson",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "Bitso"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Principal Engineer"
+    }
+   ]
+  },
+  {
+   "id": "4dffff7b-5850-44d6-9577-ccee0f74bdf4",
+   "firstName": "Ryan",
+   "lastName": "Brewster",
+   "bio": "Kubernetes cluster stability @ Anthropic",
+   "tagLine": "Member of Technical Staff @ Anthropic",
+   "profilePicture": "https://cdn.sessionize.com/image/617b-400o400o1-ExALzZihtBv5kuj8iBLyQd.jpg",
+   "isTopSpeaker": false,
+   "links": [],
+   "sessions": [
+    1249997
+   ],
+   "fullName": "Ryan Brewster",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "Anthropic"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Member of Technical Staff"
+    }
+   ]
+  },
+  {
+   "id": "a9f7c548-757f-4a6b-ac69-110a5d2558c2",
+   "firstName": "Scott",
+   "lastName": "Adams",
+   "bio": "Scott Adams is a Principal Engineer, where he leads platform and DevOps initiatives on AWS and EKS. He builds AI-powered developer tools that reduce operational toil \u2014 from intelligent namespace assis",
+   "tagLine": "Principal Engineer",
+   "profilePicture": "https://cdn.sessionize.com/image/1e38-400o400o1-fZVkD3qJKSd3PeTtwATncj.jpg",
+   "isTopSpeaker": false,
+   "links": [],
+   "sessions": [
+    1246200
+   ],
+   "fullName": "Scott Adams",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "Independent"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Principal Engineer"
+    }
+   ]
+  },
+  {
+   "id": "7014e2b3-d703-465e-b0f7-5f38b6e6ea20",
+   "firstName": "Seol",
+   "lastName": "Heo",
+   "bio": "Seol Heo is a Tech Lead on the MLOps Development Team at LG U+, South Korea's major telecommunications provider. He leads the design and implementation of LG U+'s MLOps platform on Amazon EKS, includi",
+   "tagLine": "Turning AI platforms into real-world services at scale",
+   "profilePicture": "https://cdn.sessionize.com/image/47eb-400o400o1-WYMGY4YpsjtQZjAQue6HFG.png",
+   "isTopSpeaker": false,
+   "links": [],
+   "sessions": [
+    1250865
+   ],
+   "fullName": "Seol Heo",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "LG Uplus Corp."
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Tech Lead, MLOps Development Team"
+    }
+   ]
+  },
+  {
+   "id": "1a6c8c7d-d6b8-4159-be56-7fc582ddd2e3",
+   "firstName": "Swati Shridhar",
+   "lastName": "Nair",
+   "bio": "Swati is a Senior Software Engineer at LinkedIn, where she builds and operates Kubernetes platforms for both stateless and stateful workloads that power many of LinkedIn\u2019s core services. She enjoys si",
+   "tagLine": "LinkedIn, Senior Software Engineer",
+   "profilePicture": "https://cdn.sessionize.com/image/6ca0-400o400o1-4KfxnGnMY1sMXLG1gFMhiw.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/swatishr/",
+     "linkType": "LinkedIn"
+    }
+   ],
+   "sessions": [
+    1247858
+   ],
+   "fullName": "Swati Shridhar Nair",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "LinkedIn"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Senior Software Engineer"
+    }
+   ]
+  },
+  {
+   "id": "ac6d22ca-693b-4e27-a7a1-3bc458cbad34",
+   "firstName": "Vasudev",
+   "lastName": "Bongale",
+   "bio": "Vasudev is a Staff Software Engineer and technical lead for LinkedIn\u2019s Kubernetes platform, which runs 2M+ containers across stateless and stateful services. He works on the end-to-end workload lifecy",
+   "tagLine": "Staff Software Engineer",
+   "profilePicture": "https://cdn.sessionize.com/image/daf0-400o400o1-QicREPVTn3hVdm8s2AR1ng.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/vasudevbongale/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://www.linkedin.com",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/vasudev-bongale",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1247858
+   ],
+   "fullName": "Vasudev Bongale",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "LinkedIn"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Staff Software Engineer"
+    }
+   ]
+  },
+  {
+   "id": "8f98a465-bed6-43c2-a48b-434eb9490b9b",
+   "firstName": "YoungJoon",
+   "lastName": "Jeong",
+   "bio": "YoungJoon Jeong is a Specialist Solutions Architect at Amazon Web Services (AWS), specializing in Kubernetes platform engineering and AI/ML infrastructure. He works with enterprises across the APJC re",
+   "tagLine": "Helping enterprises build AI platforms on Kubernetes",
+   "profilePicture": "https://cdn.sessionize.com/image/5e46-400o400o1-4xA8EhM5rFVgPFcWmSjrCo.png",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/youngjoonjeong/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Blog",
+     "url": "https://devfloor9.github.io/engineering-playbook/",
+     "linkType": "Blog"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://aws.amazon.com/",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "github",
+     "url": "https://github.com/devfloor9",
+     "linkType": "Other"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/youngjoon-jeong",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1250865
+   ],
+   "fullName": "YoungJoon Jeong",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "AWS"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Sr Specialist SA"
+    }
+   ]
+  },
+  {
+   "id": "4d2a68f8-5859-49d1-9caa-e488d11baa9b",
+   "firstName": "Zvonko",
+   "lastName": "Kaiser",
+   "bio": "Zvonko Kaiser is a Principal Systems Software Engineer at NVIDIA, specializing in cloud-native confidential computing and GPU security. He served on the Kata Containers Architecture Committee and serv",
+   "tagLine": "NVIDIA, Principal Systems Software Engineer",
+   "profilePicture": "https://cdn.sessionize.com/image/9d9d-400o400o1-9g7vJMpK4Ur7BMFaZoa46R.png",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/zvonkok/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://www.nvidia.com",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/zvonkok",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1250838
+   ],
+   "fullName": "Zvonko Kaiser",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 128829,
+     "answerValue": "NVIDIA"
+    },
+    {
+     "questionId": 128830,
+     "answerValue": "Principal Systems Software Engineer"
+    }
+   ]
+  }
+ ],
+ "questions": [
+  {
+   "id": 128829,
+   "question": "Company",
+   "questionType": "Short_Text",
+   "sort": 32
+  },
+  {
+   "id": 128830,
+   "question": "Speaker Title",
+   "questionType": "Short_Text",
+   "sort": 31
+  },
+  {
+   "id": 137003,
+   "question": "Presentation Slides",
+   "questionType": "File_upload",
+   "sort": 55
+  },
+  {
+   "id": 137004,
+   "question": "GitHub Repository",
+   "questionType": "Web_address",
+   "sort": 56
+  },
+  {
+   "id": 137005,
+   "question": "Project Demo",
+   "questionType": "Web_address",
+   "sort": 57
+  },
+  {
+   "id": 137006,
+   "question": "Website",
+   "questionType": "Web_address",
+   "sort": 58
+  },
+  {
+   "id": 137119,
+   "question": "Location Map",
+   "questionType": "Web_address",
+   "sort": 76
+  },
+  {
+   "id": 138119,
+   "question": "Company Override",
+   "questionType": "Short_Text",
+   "sort": 86
+  },
+  {
+   "id": 140808,
+   "question": "Company URL",
+   "questionType": "Web_address",
+   "sort": 87
+  },
+  {
+   "id": 142725,
+   "question": "Speaker Name Display",
+   "questionType": "Short_Text",
+   "sort": 78
+  },
+  {
+   "id": 142883,
+   "question": "Event Logo",
+   "questionType": "Web_address",
+   "sort": 79
+  }
+ ],
+ "categories": [
+  {
+   "id": 128813,
+   "title": "All Sessions",
+   "type": "session",
+   "items": [
+    {
+     "id": 465809,
+     "name": "AI Inference + Agentic",
+     "sort": 1
+    },
+    {
+     "id": 465815,
+     "name": "Observability",
+     "sort": 8
+    },
+    {
+     "id": 465812,
+     "name": "Operations + Performance",
+     "sort": 9
+    },
+    {
+     "id": 465814,
+     "name": "Security",
+     "sort": 11
+    },
+    {
+     "id": 496574,
+     "name": "CNCF-hosted Co-located Events",
+     "sort": 27
+    }
+   ]
+  },
+  {
+   "id": 128814,
+   "title": "Audience Level",
+   "type": "session",
+   "items": [
+    {
+     "id": 465820,
+     "name": "Beginner",
+     "sort": 1
+    },
+    {
+     "id": 465819,
+     "name": "Advanced",
+     "sort": 2
+    },
+    {
+     "id": 465822,
+     "name": "Any Level",
+     "sort": 3
+    }
+   ]
+  },
+  {
+   "id": 136945,
+   "title": "SubTopic",
+   "type": "session",
+   "items": []
+  },
+  {
+   "id": 136946,
+   "title": "CNCF Projects",
+   "type": "session",
+   "items": []
+  },
+  {
+   "id": 136947,
+   "title": "End User Programming",
+   "type": "session",
+   "items": [
+    {
+     "id": 496398,
+     "name": "End User Talk",
+     "sort": 1
+    }
+   ]
+  },
+  {
+   "id": 144172,
+   "title": "Solutions Showcase Programming",
+   "type": "session",
+   "items": []
+  },
+  {
+   "id": 142047,
+   "title": "Is Sponsored Keynote",
+   "type": "session",
+   "items": []
+  }
+ ],
+ "rooms": [
+  {
+   "id": 82948,
+   "name": "Salt Palace | Level 1 | Grand Ballroom ACE",
+   "sort": 2
+  },
+  {
+   "id": 82950,
+   "name": "Salt Palace | Level 1 | Grand Ballroom H",
+   "sort": 4
+  },
+  {
+   "id": 82956,
+   "name": "Hyatt Regency | Level 2 | Salt Lake Ballroom DE",
+   "sort": 10
+  }
+ ]
+}
