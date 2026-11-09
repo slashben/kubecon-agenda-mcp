@@ -276,7 +276,20 @@ def test_breaks_classified_from_metadata(agenda):
     assert not _mk(agenda, title="AM Break", tracks=("CiliumCon", "☕ Breaks"), tags=()).is_talk
     assert not _mk(agenda, title="Coffee + Networking", tracks=("Maintainer Summit",), tags=("Breaks + Networking + Special Events",)).is_talk
     assert not _mk(agenda, title="Evening Reception", tracks=("ArgoCon", "🎉 Experiences"), tags=()).is_talk
-    assert not _mk(agenda, title="Pet-a-Pup", tracks=("Experiences",), tags=()).is_talk
+    assert not _mk(agenda, title="Pet-a-Pup", tracks=("Experiences",), tags=("Breaks + Networking + Special Events",)).is_talk
+
+
+def test_experiences_track_items_are_talks(agenda):
+    sp = agenda.sessions[0].speakers or ()
+    assert _mk(agenda, title="Documentary Premiere: The Linkerd Story", tracks=("Experiences",), tags=(), speakers=()).is_talk
+    assert _mk(agenda, title="Apple Containers BoF", tracks=("Experiences",), tags=(), speakers=sp).is_talk
+    assert _mk(agenda, title="Peer Group Mentoring", tracks=("Experiences",), tags=(), speakers=()).is_talk
+
+
+def test_speakers_safety_net(agenda):
+    sp = next(s.speakers for s in agenda.sessions if s.speakers)
+    assert _mk(agenda, title="Mis-filed talk", tracks=("Breaks",), tags=(), speakers=sp).is_talk
+    assert not _mk(agenda, title="Welcome Reception with the Maintainers", tracks=("Experiences",), tags=(), speakers=sp).is_talk
 
 
 def test_untagged_coffee_break_caught_by_exact_title_only(agenda):

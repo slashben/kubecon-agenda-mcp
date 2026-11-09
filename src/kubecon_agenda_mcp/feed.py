@@ -37,16 +37,16 @@ SESSION_LINK_QUESTIONS = {
 }
 SPEAKER_COMPANY_QUESTIONS = ("Company Override", "Company")
 
-# Tracks / categories that mark an entry as not-a-talk: breaks, registration desks and
-# social events (receptions, group photos, pet-a-pup...). Checked against tracks and tags.
+# Categories that mark an individual entry as not-a-talk: breaks, meals, registration desks
+# and social slots. Checked against the item's own tracks and tags, never a whole programme.
+# "Experiences" is deliberately absent: it mixes BoFs, meetups and screenings with social items.
 NON_TALK_LABELS = {
     "Breaks",
     "☕ Breaks",
     "Breaks + Networking + Special Events",
     "Registration",
-    "Experiences",
-    "🎉 Experiences",
 }
+_RECEPTION_RE = re.compile(r"\breception\b", re.I)
 # A few break entries carry no break category at all (e.g. coffee breaks filed under
 # "Project Lightning Talks"). Only an *exact* normalised title can mark those, so a talk
 # with "break" in its name can never be hidden.
@@ -110,6 +110,10 @@ class Session:
 
         Decided from the feed's own categories; the only title-based rule is an exact match
         against a short list of generic break names, never a keyword search."""
+        if _RECEPTION_RE.search(self.title):
+            return False
+        if self.speakers:
+            return True  # safety net: a session with listed speakers is never hidden
         if any(label in NON_TALK_LABELS for label in (*self.tracks, *self.tags)):
             return False
         norm = " ".join(_TITLE_NORM_RE.sub(" ", self.title.lower()).split())
