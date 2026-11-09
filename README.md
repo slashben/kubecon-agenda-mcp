@@ -11,20 +11,115 @@ Community project. Not affiliated with CNCF, the Linux Foundation or Sessionize.
 
 ## Use it
 
-Hosted endpoint (Streamable HTTP, no auth):
+Hosted endpoint (Streamable HTTP, no auth, read-only):
 
 ```
 https://kubecon-schedule-mcp.slashben.net/mcp
 ```
 
-Claude Code:
+It works with any MCP client that speaks Streamable HTTP. Pick yours:
+
+<details open>
+<summary><b>Claude Code</b></summary>
 
 ```sh
 claude mcp add --transport http kubecon https://kubecon-schedule-mcp.slashben.net/mcp
 ```
+</details>
 
-claude.ai / Claude desktop: Settings, Connectors, Add custom connector, paste the URL.
-Any other MCP client that speaks Streamable HTTP works the same way.
+<details>
+<summary><b>Claude.ai / Claude Desktop</b></summary>
+
+Settings, Connectors, Add custom connector, paste the URL. Available on paid plans.
+</details>
+
+<details>
+<summary><b>ChatGPT</b> (Plus and above)</summary>
+
+Settings, Apps & Connectors, Advanced settings, enable **Developer mode**. Then Connectors, Create,
+paste the URL, choose *No authentication*. In a chat, open the plus menu and enable the connector.
+Developer mode is a beta feature on OpenAI's side.
+</details>
+
+<details>
+<summary><b>GitHub Copilot in VS Code</b></summary>
+
+Add to `.vscode/mcp.json` (workspace) or run *MCP: Open User Configuration* (all projects):
+
+```json
+{
+  "servers": {
+    "kubecon": { "type": "http", "url": "https://kubecon-schedule-mcp.slashben.net/mcp" }
+  }
+}
+```
+
+Or from the shell: `code --add-mcp '{"name":"kubecon","type":"http","url":"https://kubecon-schedule-mcp.slashben.net/mcp"}'`.
+Use it from Copilot Chat in agent mode.
+</details>
+
+<details>
+<summary><b>GitHub Copilot CLI</b></summary>
+
+Run `/mcp add` inside the CLI, or add to `~/.copilot/mcp-config.json`:
+
+```json
+{
+  "mcpServers": {
+    "kubecon": { "type": "http", "url": "https://kubecon-schedule-mcp.slashben.net/mcp", "tools": ["*"] }
+  }
+}
+```
+</details>
+
+<details>
+<summary><b>Gemini CLI</b></summary>
+
+```sh
+gemini mcp add --transport http -s user kubecon https://kubecon-schedule-mcp.slashben.net/mcp
+```
+
+or in `~/.gemini/settings.json`:
+
+```json
+{
+  "mcpServers": {
+    "kubecon": { "httpUrl": "https://kubecon-schedule-mcp.slashben.net/mcp", "timeout": 30000 }
+  }
+}
+```
+
+Use `httpUrl`, not `url` (that one is for the older SSE transport). Check with `/mcp`.
+</details>
+
+<details>
+<summary><b>OpenAI Codex CLI</b></summary>
+
+```sh
+codex mcp add kubecon --url https://kubecon-schedule-mcp.slashben.net/mcp
+```
+</details>
+
+<details>
+<summary><b>Cursor</b></summary>
+
+Add to `~/.cursor/mcp.json` (global) or `.cursor/mcp.json` (project):
+
+```json
+{
+  "mcpServers": {
+    "kubecon": { "url": "https://kubecon-schedule-mcp.slashben.net/mcp" }
+  }
+}
+```
+</details>
+
+<details>
+<summary><b>Anything else</b></summary>
+
+Any client with a remote / HTTP MCP option: transport *Streamable HTTP*, URL above, no auth headers.
+For stdio-only clients, bridge with `npx mcp-remote https://kubecon-schedule-mcp.slashben.net/mcp`.
+</details>
 
 Then ask things like:
 
