@@ -14,13 +14,13 @@ Community project. Not affiliated with CNCF, the Linux Foundation or Sessionize.
 Hosted endpoint (Streamable HTTP, no auth):
 
 ```
-https://<your-domain>/mcp
+https://kubecon-schedule-mcp.slashben.net/mcp
 ```
 
 Claude Code:
 
 ```sh
-claude mcp add --transport http kubecon https://<your-domain>/mcp
+claude mcp add --transport http kubecon https://kubecon-schedule-mcp.slashben.net/mcp
 ```
 
 claude.ai / Claude desktop: Settings, Connectors, Add custom connector, paste the URL.
