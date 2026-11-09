@@ -145,7 +145,8 @@ def build_server(config: EventConfig | None = None, store: AgendaStore | None = 
         out = [f"At {when:%a %d %b %H:%M} ({config.timezone}):"]
         out += section("Talks in progress", w.running)
         out += section(f"Talks starting within {lookahead_minutes} min", w.upcoming)
-        out += section("All-day blocks in progress", w.blocks)
+        if w.blocks:
+            out.append(f"All-day blocks in progress ({len(w.blocks)}): " + "; ".join(f"{b.title} [{b.id}] ({b.room})" for b in w.blocks))
         if w.offsite:
             out.append(f"Off-site sponsor events in progress: {len(w.offsite)} (search with track='Sponsor-hosted' for details)")
         return "\n".join(out)
@@ -162,10 +163,13 @@ def build_server(config: EventConfig | None = None, store: AgendaStore | None = 
     @mcp.tool(
         description=(
             "Validate a personal agenda: pass the session ids you plan to attend. Returns them in time order and "
-            "flags overlaps, unknown ids, and venue changes (e.g. Salt Palace -> Hyatt) with too little walking time."
+            "flags every overlapping pair, duplicates, unknown ids, and venue changes (e.g. Salt Palace -> Hyatt) "
+            "with too little walking time."
         )
     )
     async def check_agenda(session_ids: list[str], min_gap_minutes: int = 10) -> str:
+        if not session_ids:
+            return "No session ids given. Pass the ids from search_sessions results."
         agenda = await store.get()
         picked, issues = ag.check_agenda(agenda, session_ids, min_gap_minutes)
         _log("check_agenda", picked=len(picked), issues=len(issues))

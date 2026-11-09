@@ -41,7 +41,9 @@ NON_TALK_TRACKS = {"Breaks", "☕ Breaks", "Registration"}
 OFFSITE_VENUE = "Off-Site Location"
 
 # LF appends access notes to titles: "ArgoCon ... | ALL ACCESS PASS REQUIRED".
-_ACCESS_RE = re.compile(r"\s*\|\s*((?:ALL ACCESS|SEPARATE REGISTRATION|SOLD OUT|INVITE|PRE-REGISTRATION|RSVP)[^|]*)$", re.I)
+_ACCESS_SEG = r"(?:ALL ACCESS|SEPARATE REGISTRATION|SOLD OUT|INVITE|PRE-REGISTRATION|RSVP)[^|]*"
+_ACCESS_RE = re.compile(rf"((?:\s*(?:\|\s*{_ACCESS_SEG}|\[\s*{_ACCESS_SEG}\]))+)$", re.I)
+_BREAK_RE = re.compile(r"\b(break|lunch|coffee|registration|coat)\b", re.I)
 
 
 @dataclass(frozen=True)
@@ -55,8 +57,10 @@ class Speaker:
     session_ids: tuple[str, ...] = ()
 
     def matches(self, needle: str) -> bool:
-        n = needle.lower()
-        return n in self.name.lower() or n in self.company.lower() or n in self.tagline.lower()
+        n = needle.strip().lower()
+        if n in self.name.lower():
+            return True
+        return re.search(rf"(?<![a-z0-9]){re.escape(n)}(?![a-z0-9])", f"{self.company} {self.tagline}".lower()) is not None
 
 
 @dataclass(frozen=True)
@@ -70,6 +74,7 @@ class Session:
     venue: str  # first segment of the room name, e.g. "Salt Palace"
     track: str
     level: str
+    tracks: tuple[str, ...]  # every track the session is filed under; `track` is the first
     topics: tuple[str, ...]
     projects: tuple[str, ...]
     tags: tuple[str, ...]
@@ -82,10 +87,9 @@ class Session:
     @property
     def is_talk(self) -> bool:
         """False for registration desks, breaks, lunches and similar filler."""
-        if self.track in NON_TALK_TRACKS:
+        if any(t in NON_TALK_TRACKS for t in self.tracks):
             return False
-        head = self.title.lower()
-        return not head.startswith(("break", "lunch", "coffee", "registration", "coat"))
+        return not _BREAK_RE.search(self.title)
 
     @property
     def is_colocated(self) -> bool:
@@ -119,6 +123,7 @@ class Agenda:
     fetched_at: float
     programs: tuple[str, ...] = ()
     etags: dict[str, str] = field(default_factory=dict)
+    unavailable: tuple[str, ...] = ()  # programs whose feed could not be loaded this time
 
     def by_id(self, session_id: str) -> Session | None:
         return next((s for s in self.sessions if s.id == session_id), None)
@@ -139,10 +144,12 @@ def _answers(obj: dict, questions: dict[int, str]) -> dict[str, str]:
 
 
 def split_access(title: str) -> tuple[str, str]:
+    """'ArgoCon ... | ALL ACCESS PASS REQUIRED | SOLD OUT' -> ('ArgoCon ...', 'ALL ACCESS PASS REQUIRED; SOLD OUT')."""
     m = _ACCESS_RE.search(title)
     if not m:
         return title.strip(), ""
-    return title[: m.start()].strip(), m.group(1).strip().upper()
+    labels = [seg.strip().upper() for seg in re.split(r"[|\[\]]", m.group(1)) if seg.strip()]
+    return title[: m.start()].strip(), "; ".join(labels)
 
 
 def normalize(raw: dict, program: str = "") -> tuple[list[Session], list[Speaker]]:
@@ -180,8 +187,9 @@ def normalize(raw: dict, program: str = "") -> tuple[list[Session], list[Speaker
             if cid in categories:
                 g, name = categories[cid]
                 groups.setdefault(g, []).append(name)
-        track = (groups.get(TRACK_GROUP) or [program or ""])[0]
-        topics = tuple(t for t in groups.get(TOPIC_GROUP, []) if t != track)
+        tracks = tuple(groups.get(TRACK_GROUP) or [program or ""])
+        track = tracks[0]
+        topics = tuple(t for t in groups.get(TOPIC_GROUP, []) if t not in tracks)
         projects = tuple(groups.get(PROJECT_GROUP, []))
         tags = tuple(
             name
@@ -206,6 +214,7 @@ def normalize(raw: dict, program: str = "") -> tuple[list[Session], list[Speaker
                 venue=parts[0] if parts else "",
                 track=track,
                 level=(groups.get(LEVEL_GROUP) or [""])[0],
+                tracks=tracks,
                 topics=topics,
                 projects=projects,
                 tags=tags,
@@ -219,23 +228,58 @@ def normalize(raw: dict, program: str = "") -> tuple[list[Session], list[Speaker
     return sessions, list(speakers.values())
 
 
+def _speaker_key(sp: Speaker) -> str:
+    return re.sub(r"[^a-z]", "", sp.name.lower())
+
+
+def _inherit_access(sessions: list[Session]) -> list[Session]:
+    """Umbrella entries in the main feed ("ArgoCon Hosted by CNCF ... | ALL ACCESS PASS REQUIRED")
+    carry the access rule for a whole programme. Copy it to every child talk filed under that
+    track in another feed, and stretch the umbrella to the last child's end time."""
+    from dataclasses import replace
+
+    umbrellas = [s for s in sessions if s.is_block and s.access]
+    out = list(sessions)
+    for i, s in enumerate(out):
+        if s.access or not s.program:
+            continue
+        for u in umbrellas:
+            if u.program != s.program and u.day == s.day and any(t.lower() in u.title.lower() for t in s.tracks if t):
+                out[i] = replace(s, access=u.access)
+                break
+    for i, u in enumerate(out):
+        if u in umbrellas:
+            # Only single-track children count: lunches and receptions are filed under every event.
+            kids = [s for s in out if s.program != u.program and s.day == u.day and len(s.tracks) == 1 and s.tracks[0] and s.tracks[0].lower() in u.title.lower()]
+            if kids:
+                last = max(k.end for k in kids)
+                if last > u.end:
+                    out[i] = replace(u, end=last)
+    return out
+
+
 def merge(parts: list[tuple[list[Session], list[Speaker]]]) -> tuple[list[Session], list[Speaker]]:
     sessions: dict[str, Session] = {}
-    speakers: dict[str, Speaker] = {}
+    speakers: dict[str, Speaker] = {}  # keyed by normalised name: Sessionize ids differ per event
     for ss, sps in parts:
         for s in ss:
             sessions.setdefault(s.id, s)
         for sp in sps:
-            prev = speakers.get(sp.id)
+            key = _speaker_key(sp)
+            prev = speakers.get(key)
             if prev is None:
-                speakers[sp.id] = sp
-            else:  # same person in two feeds: union their sessions
-                speakers[sp.id] = Speaker(
+                speakers[key] = sp
+            else:  # same person in two feeds: union their sessions and ids
+                speakers[key] = Speaker(
                     prev.id, prev.name, prev.tagline or sp.tagline, prev.company or sp.company,
                     prev.bio or sp.bio, {**sp.links, **prev.links},
                     tuple(dict.fromkeys(prev.session_ids + sp.session_ids)),
                 )
-    out = sorted(sessions.values(), key=lambda x: (x.start, x.room))
+    # Point every session's speakers at the merged records.
+    by_key = {_speaker_key(sp): sp for sp in speakers.values()}
+    from dataclasses import replace
+    merged = [replace(s, speakers=tuple(by_key[_speaker_key(x)] for x in s.speakers)) for s in sessions.values()]
+    out = sorted(_inherit_access(merged), key=lambda x: (x.start, x.room))
     return out, sorted(speakers.values(), key=lambda sp: sp.name.lower())
 
 
@@ -296,7 +340,11 @@ class AgendaStore:
         parts = [normalize(self._raw[f.sessionize_id], f.program) for f in self.config.feeds if f.sessionize_id in self._raw]
         sessions, speakers = merge(parts)
         loaded = tuple(f.program for f in self.config.feeds if f.sessionize_id in self._raw)
-        self._agenda = Agenda(sessions, speakers, time.monotonic(), loaded, etags)
+        missing = tuple(f.program for f in self.config.feeds if f.sessionize_id not in self._raw)
+        self._agenda = Agenda(sessions, speakers, time.monotonic(), loaded, etags, missing)
+        if missing:
+            # Retry soon rather than serving a partial agenda for a whole TTL.
+            self._agenda.fetched_at = time.monotonic() - self.config.cache_ttl + 60
         log.info("feeds loaded: %s; %d sessions, %d speakers", ", ".join(loaded), len(sessions), len(speakers))
 
     def load_static(self, *raws: dict | tuple[dict, str]) -> Agenda:

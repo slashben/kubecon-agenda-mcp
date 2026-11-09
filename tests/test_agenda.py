@@ -181,3 +181,76 @@ def test_parse_feeds():
 
 def test_normalize_handles_empty_feed():
     assert normalize({}) == ([], [])
+
+
+# --- second review round -----------------------------------------------------
+
+
+def test_check_agenda_reports_every_overlapping_pair(agenda):
+    # three co-located talks in the same 11:15 slot plus one starting 11:30: 5 overlapping pairs
+    slot = [s for s in agenda.sessions if s.program == "Co-located events" and s.start == datetime(2026, 11, 9, 11, 15)]
+    later = [s for s in agenda.sessions if s.program == "Co-located events" and s.start == datetime(2026, 11, 9, 11, 30)]
+    picked = (slot + later)[:4]
+    if len(picked) < 3:
+        pytest.skip("fixture lacks a crowded slot")
+    _, issues = ag.check_agenda(agenda, [s.id for s in picked])
+    expected = sum(1 for i, a in enumerate(picked) for b in picked[i + 1 :] if a.overlaps(b))
+    assert sum(1 for i in issues if i.kind == "overlap") == expected
+
+
+def test_check_agenda_duplicates_and_empty(agenda):
+    picked, issues = ag.check_agenda(agenda, ["1236746", "1236746"])
+    assert len(picked) == 1 and [i.kind for i in issues] == ["duplicate"]
+    assert ag.check_agenda(agenda, []) == ([], [])
+
+
+def test_colocated_talks_inherit_access_from_umbrella(agenda):
+    talks = [s for s in agenda.sessions if s.program == "Co-located events" and any("Agentics Day" in t for t in s.tracks) and not s.is_block]
+    assert talks and all(t.access == "ALL ACCESS PASS REQUIRED" for t in talks)
+
+
+def test_umbrella_end_stretches_to_last_child(agenda):
+    u = agenda.by_id("1289780")
+    kids = [s for s in agenda.sessions if s.program == "Co-located events" and any("Agentics Day" in t for t in s.tracks)]
+    assert u.end >= max(k.end for k in kids)
+
+
+def test_shared_breaks_are_breaks_in_every_event(agenda):
+    breaks = [s for s in agenda.sessions if s.program == "Co-located events" and not s.is_talk]
+    assert breaks, "fixture should contain a co-located break"
+    b = breaks[0]
+    assert "☕ Breaks" in b.tracks
+    assert not ag.search(agenda, ag.Query(track="Agentics Day")) or all(s.is_talk for s in ag.search(agenda, ag.Query(track="Agentics Day")))
+    for t in b.tracks:
+        if t != "☕ Breaks":
+            assert b in ag.search(agenda, ag.Query(track=t, include_breaks=True))
+
+
+def test_speakers_merge_across_feeds_by_name():
+    from kubecon_agenda_mcp.feed import merge, Speaker, Session
+    mk = lambda i, c: Speaker(i, "Alex Chircop", "", c, "", {}, ())
+    sess = lambda i, sp: Session(i, "t", "", datetime(2026, 11, 8, 9), datetime(2026, 11, 8, 10), "r", "v", "x", "", ("x",), (), (), (), (sp,), {}, False, "p")
+    a, b = mk("id-1", "Google"), mk("id-2", "")
+    sessions, speakers = merge([([sess("1", a)], [a]), ([sess("2", b)], [b])])
+    assert len(speakers) == 1 and speakers[0].company == "Google"
+    assert all(s.speakers[0].id == "id-1" for s in sessions)
+
+
+def test_company_match_is_whole_word():
+    from kubecon_agenda_mcp.feed import Speaker
+    assert Speaker("1", "Ben Hirschberg", "CTO, ARMO", "ARMO", "").matches("armo")
+    assert not Speaker("2", "Huan Wei", "Engineer, Harmonic", "Harmonic", "").matches("armo")
+    assert Speaker("3", "Qasim Sarfraz", "", "", "").matches("sarfr")  # partial surnames stay allowed
+
+
+def test_multiple_access_labels(agenda):
+    assert split_access("Maintainer Summit | SEPARATE REGISTRATION REQUIRED | SOLD OUT") == (
+        "Maintainer Summit", "SEPARATE REGISTRATION REQUIRED; SOLD OUT")
+    assert split_access("CNCF Maintainer Summit [SOLD OUT]") == ("CNCF Maintainer Summit", "SOLD OUT")
+
+
+def test_pipe_in_title_is_escaped_in_line_output(agenda):
+    s = agenda.sessions[0]
+    from dataclasses import replace
+    line = ag.fmt_line(replace(s, title="Project Meeting | Karmada"))
+    assert line.count(" | ") == 4 and "Project Meeting / Karmada" in line

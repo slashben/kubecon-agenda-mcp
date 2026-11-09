@@ -87,7 +87,7 @@ def _score(s: Session, terms: list[str]) -> int | None:
     """Return a relevance score, or None if any term is missing everywhere."""
     score = 0
     speakers = " ".join(f"{sp.name} {sp.company}" for sp in s.speakers)
-    tags = " ".join((s.track, *s.topics, *s.projects, *s.tags))
+    tags = " ".join((*s.tracks, *s.topics, *s.projects, *s.tags))
     for t in terms:
         if _contains(s.title, t):
             score += 5
@@ -122,7 +122,7 @@ def search(agenda: Agenda, q: Query) -> list[Session]:
             continue
         if q.room and not _contains(s.room, q.room):
             continue
-        if q.track and not _contains(" ".join((s.track, *s.topics, *s.tags)), q.track):
+        if q.track and not _contains(" ".join((*s.tracks, *s.topics, *s.tags)), q.track):
             continue
         if q.project and not any(_contains(p, q.project) for p in s.projects):
             continue
@@ -166,27 +166,37 @@ class AgendaIssue:
 def check_agenda(
     agenda: Agenda, ids: list[str], min_gap_minutes: int = 10
 ) -> tuple[list[Session], list[AgendaIssue]]:
-    """Order the picked sessions and flag overlaps and venue changes with no walking time."""
+    """Order the picked sessions and flag every overlapping pair, duplicates, unknown ids and
+    venue changes with too little walking time (measured from the latest session still running)."""
     picked: list[Session] = []
     issues: list[AgendaIssue] = []
+    seen: set[str] = set()
     for sid in ids:
-        s = agenda.by_id(sid.strip())
+        sid = sid.strip()
+        if sid in seen:
+            issues.append(AgendaIssue("duplicate", f"session {sid} listed more than once"))
+            continue
+        seen.add(sid)
+        s = agenda.by_id(sid)
         if s is None:
             issues.append(AgendaIssue("missing", f"no session with id {sid}"))
         else:
             picked.append(s)
-    picked.sort(key=lambda s: s.start)
-    for a, b in zip(picked, picked[1:]):
-        if a.overlaps(b):
-            issues.append(AgendaIssue("overlap", f"[{a.id}] {a.title!r} overlaps [{b.id}] {b.title!r}"))
+    picked.sort(key=lambda s: (s.start, s.end))
+    for i, a in enumerate(picked):
+        for b in picked[i + 1 :]:
+            if a.overlaps(b):
+                issues.append(AgendaIssue("overlap", f"[{a.id}] {a.title!r} overlaps [{b.id}] {b.title!r}"))
+    # Walking time: compare each session with whatever ends latest before it starts.
+    for i, b in enumerate(picked):
+        prior = [a for a in picked[:i] if a.end <= b.start and a.venue and b.venue and a.venue != b.venue]
+        if not prior:
             continue
+        a = max(prior, key=lambda x: x.end)
         gap = int((b.start - a.end).total_seconds() // 60)
-        if a.venue and b.venue and a.venue != b.venue and gap < min_gap_minutes:
+        if gap < min_gap_minutes:
             issues.append(
-                AgendaIssue(
-                    "tight",
-                    f"only {gap} min to get from {a.venue} to {b.venue} between [{a.id}] and [{b.id}]",
-                )
+                AgendaIssue("tight", f"only {gap} min to get from {a.venue} to {b.venue} between [{a.id}] and [{b.id}]")
             )
     return picked, issues
 
@@ -213,7 +223,7 @@ def fmt_when(s: Session) -> str:
 
 def fmt_line(s: Session) -> str:
     who = ", ".join(sp.name for sp in s.speakers)
-    parts = [f"[{s.id}]", fmt_when(s), s.room or "-", s.track or "-", s.title]
+    parts = [f"[{s.id}]", fmt_when(s), s.room or "-", s.track or "-", s.title.replace("|", "/")]
     line = " | ".join(parts)
     if who:
         line += f" — {who}"
@@ -227,7 +237,8 @@ def fmt_lines(sessions: list[Session], limit: int | None = None) -> str:
         return "No matching sessions."
     total = len(sessions)
     shown = sessions[:limit] if limit else sessions
-    head = f"{len(shown)} of {total} sessions" if len(shown) < total else f"{total} sessions"
+    noun = "session" if total == 1 else "sessions"
+    head = f"{len(shown)} of {total} {noun}" if len(shown) < total else f"{total} {noun}"
     return head + ":\n" + "\n".join(fmt_line(s) for s in shown)
 
 
@@ -296,6 +307,8 @@ def describe(agenda: Agenda, config: EventConfig) -> str:
         tracks = sorted({s.track for s in subset if s.track})
         label = program or "Tracks"
         out.append(f"{label} ({len(subset)} sessions). Tracks: {'; '.join(tracks)}")
+    if agenda.unavailable:
+        out.append(f"WARNING: could not load {', '.join(agenda.unavailable)} right now; those sessions are missing from all tools until the next refresh.")
     out.append(f"Rooms: {'; '.join(rooms)}")
     if projects:
         out.append(f"CNCF projects tagged: {', '.join(projects)}")
