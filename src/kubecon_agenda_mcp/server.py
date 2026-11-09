@@ -58,7 +58,7 @@ def build_server(config: EventConfig | None = None, store: AgendaStore | None = 
         description=(
             "Search sessions. Filters combine with AND; results are ranked by relevance (title > tags > speaker > abstract) "
             "then by time. One line per session: [id] | when | room | track | title — speakers. "
-            "Breaks and registration are hidden unless include_breaks is true."
+            "Breaks, registration and social events (receptions, group photos) are hidden unless include_breaks is true."
         )
     )
     async def search_sessions(
@@ -86,7 +86,7 @@ def build_server(config: EventConfig | None = None, store: AgendaStore | None = 
             track: Track, topic or tag substring, e.g. "Security", "Istio Day", "Co-located".
             project: CNCF project tag substring, e.g. "Cilium", "Falco", "Kubeflow".
             level: Audience level: Beginner, Advanced or Any.
-            include_breaks: Also return breaks, lunches and registration blocks.
+            include_breaks: Also return breaks, lunches, registration and social events (receptions, group photos).
             include_offsite: Set false to hide off-site sponsor events (separate registration, not at the venue).
             limit: Max lines to return (1-100).
         """

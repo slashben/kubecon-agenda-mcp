@@ -254,3 +254,37 @@ def test_pipe_in_title_is_escaped_in_line_output(agenda):
     from dataclasses import replace
     line = ag.fmt_line(replace(s, title="Project Meeting | Karmada"))
     assert line.count(" | ") == 4 and "Project Meeting / Karmada" in line
+
+
+# --- third review round: break classification ---------------------------------
+
+from dataclasses import replace as _replace
+
+
+def _mk(agenda, **kw):
+    return _replace(agenda.sessions[0], **kw)
+
+
+def test_talk_with_break_in_title_is_a_talk(agenda):
+    s = _mk(agenda, title="Why Post-quantum Authentication Will Break K8s", tracks=("Open Source SecurityCon",), tags=("Breakout Session",))
+    assert s.is_talk
+    s = _mk(agenda, title="Anatomy of an Outage: When Bursty ML Workloads Break the Kubernetes Scheduler", tracks=("Operations + Performance",), tags=())
+    assert s.is_talk
+
+
+def test_breaks_classified_from_metadata(agenda):
+    assert not _mk(agenda, title="AM Break", tracks=("CiliumCon", "☕ Breaks"), tags=()).is_talk
+    assert not _mk(agenda, title="Coffee + Networking", tracks=("Maintainer Summit",), tags=("Breaks + Networking + Special Events",)).is_talk
+    assert not _mk(agenda, title="Evening Reception", tracks=("ArgoCon", "🎉 Experiences"), tags=()).is_talk
+    assert not _mk(agenda, title="Pet-a-Pup", tracks=("Experiences",), tags=()).is_talk
+
+
+def test_untagged_coffee_break_caught_by_exact_title_only(agenda):
+    assert not _mk(agenda, title="☕ Coffee Break", tracks=("Project Lightning Talks",), tags=()).is_talk
+    assert _mk(agenda, title="Coffee Break Your Monolith: Incremental Migration", tracks=("Project Lightning Talks",), tags=()).is_talk
+
+
+def test_query_path_respects_include_breaks(agenda):
+    assert all(s.is_talk for s in ag.search(agenda, ag.Query(text="break")))
+    with_breaks = ag.search(agenda, ag.Query(text="break", include_breaks=True))
+    assert any(not s.is_talk for s in with_breaks)

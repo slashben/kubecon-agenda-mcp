@@ -37,13 +37,31 @@ SESSION_LINK_QUESTIONS = {
 }
 SPEAKER_COMPANY_QUESTIONS = ("Company Override", "Company")
 
-NON_TALK_TRACKS = {"Breaks", "☕ Breaks", "Registration"}
+# Tracks / categories that mark an entry as not-a-talk: breaks, registration desks and
+# social events (receptions, group photos, pet-a-pup...). Checked against tracks and tags.
+NON_TALK_LABELS = {
+    "Breaks",
+    "☕ Breaks",
+    "Breaks + Networking + Special Events",
+    "Registration",
+    "Experiences",
+    "🎉 Experiences",
+}
+# A few break entries carry no break category at all (e.g. coffee breaks filed under
+# "Project Lightning Talks"). Only an *exact* normalised title can mark those, so a talk
+# with "break" in its name can never be hidden.
+NON_TALK_TITLES = {
+    "break", "am break", "pm break", "coffee break", "lunch", "lunch break",
+    "coffee + networking", "coffee and networking", "networking break",
+    "registration + badge pick-up", "registration + badge pickup", "registration",
+    "coat + bag check", "group photo",
+}
 OFFSITE_VENUE = "Off-Site Location"
 
 # LF appends access notes to titles: "ArgoCon ... | ALL ACCESS PASS REQUIRED".
 _ACCESS_SEG = r"(?:ALL ACCESS|SEPARATE REGISTRATION|SOLD OUT|INVITE|PRE-REGISTRATION|RSVP)[^|]*"
 _ACCESS_RE = re.compile(rf"((?:\s*(?:\|\s*{_ACCESS_SEG}|\[\s*{_ACCESS_SEG}\]))+)$", re.I)
-_BREAK_RE = re.compile(r"\b(break|lunch|coffee|registration|coat)\b", re.I)
+_TITLE_NORM_RE = re.compile(r"[^a-z0-9+ ]+")
 
 
 @dataclass(frozen=True)
@@ -86,10 +104,14 @@ class Session:
 
     @property
     def is_talk(self) -> bool:
-        """False for registration desks, breaks, lunches and similar filler."""
-        if any(t in NON_TALK_TRACKS for t in self.tracks):
+        """False for breaks, registration desks and social events.
+
+        Decided from the feed's own categories; the only title-based rule is an exact match
+        against a short list of generic break names, never a keyword search."""
+        if any(label in NON_TALK_LABELS for label in (*self.tracks, *self.tags)):
             return False
-        return not _BREAK_RE.search(self.title)
+        norm = " ".join(_TITLE_NORM_RE.sub(" ", self.title.lower()).split())
+        return norm not in NON_TALK_TITLES
 
     @property
     def is_colocated(self) -> bool:

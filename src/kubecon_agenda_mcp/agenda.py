@@ -109,7 +109,7 @@ def search(agenda: Agenda, q: Query) -> list[Session]:
     day = resolve_day(q.day, agenda)
     hits: list[tuple[int, Session]] = []
     for s in agenda.sessions:
-        if not terms and not q.include_breaks and not s.is_talk:
+        if not q.include_breaks and not s.is_talk:
             continue
         if not q.include_offsite and s.is_offsite:
             continue
