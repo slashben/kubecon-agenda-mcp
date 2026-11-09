@@ -55,6 +55,8 @@ NON_TALK_TITLES = {
     "coffee + networking", "coffee and networking", "networking break",
     "registration + badge pick-up", "registration + badge pickup", "registration",
     "coat + bag check", "group photo",
+    # the main-conference evening reception is filed under "Solutions Showcase"
+    "kubecrawl + cloudnativefest",
 }
 OFFSITE_VENUE = "Off-Site Location"
 

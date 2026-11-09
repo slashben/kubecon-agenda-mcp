@@ -288,3 +288,7 @@ def test_query_path_respects_include_breaks(agenda):
     assert all(s.is_talk for s in ag.search(agenda, ag.Query(text="break")))
     with_breaks = ag.search(agenda, ag.Query(text="break", include_breaks=True))
     assert any(not s.is_talk for s in with_breaks)
+
+
+def test_kubecrawl_reception_is_not_a_talk(agenda):
+    assert not _mk(agenda, title="🎉 #KubeCrawl + #CloudNativeFest", tracks=("Solutions Showcase",), tags=()).is_talk
