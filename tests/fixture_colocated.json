@@ -1,0 +1,1474 @@
+{
+ "sessions": [
+  {
+   "id": "1312031",
+   "title": "Welcome + Opening Remarks",
+   "description": null,
+   "startsAt": "2026-11-09T09:00:00",
+   "endsAt": "2026-11-09T09:05:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "15e89e42-ee4b-4ba1-bbe6-9a4704e17394",
+    "3a3764a1-7dfb-4ee5-8306-f2173fd9e606"
+   ],
+   "categoryItems": [
+    468982,
+    502726
+   ],
+   "questionAnswers": [],
+   "roomId": 83574,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1312041",
+   "title": "Welcome + Opening Remarks",
+   "description": null,
+   "startsAt": "2026-11-09T09:00:00",
+   "endsAt": "2026-11-09T09:05:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "056cd19a-de81-494f-b813-3838ee25a315",
+    "78c9dff3-c3d9-422a-bee7-6dd6934657ad"
+   ],
+   "categoryItems": [
+    468982,
+    502736
+   ],
+   "questionAnswers": [],
+   "roomId": 83572,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1365063",
+   "title": "Who Keeps It Open?",
+   "description": "Every generational shift in computing produces plumbing that everyone depends on. TCP/IP, HTTP, the container runtime. And every time, there is a window where someone can quietly come to own it, and everyone else pays rent. The plumbing for AI agents is in that window right now.\r\n\r\nThis talk is about why it matters. Why \u201copen\u201d is a present-tense word, decided one release at a time unless neutral governance makes it permanent. Why the agentic layer captures something bigger than social media ever did, why a protocol owned by one vendor is just private property and you can get kicked out. \r\n\r\nAnd why the Agentic AI Foundation (AAIF) is that neutral home for the agentic stack, which will guarantee openness, transparency, and access, and why over 300 companies have joined the AAIF to help further this mission. ",
+   "startsAt": "2026-11-09T09:10:00",
+   "endsAt": "2026-11-09T09:15:00",
+   "isServiceSession": false,
+   "isPlenumSession": true,
+   "speakers": [
+    "389ea35f-2078-45fe-8883-05462ea3a5a1"
+   ],
+   "categoryItems": [
+    502726
+   ],
+   "questionAnswers": [],
+   "roomId": 83574,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1269816",
+   "title": "End to End Software Development Lifecycle Hardening with AMPEL",
+   "description": "As software delivery accelerates, teams need automated ways to verify compliance and security controls across the SDLC.\r\n\r\nHardening a pipeline means checking many things: who can run CI, whether repositories are configured safely, cryptographically verifying commit authors, whether tools and build chains have trusted provenance, auditing for vulnerabilities, and if all this is acceptable before release.\r\n\r\nYes there's a tool for each step, but stitching them together quickly becomes an unmaintainable mess.\r\n\r\nEnter AMPEL, the supply chain policy engine. AMPEL uses policy as code to evaluate each stage of the SDLC, blocking builds when conditions are not met. Uniform, reusable policies help protect your systems, users, and organization from insecure releases.\r\n\r\nIn this hands-on session, we\u2019ll use community-driven policies to lock down steps, monitor checks, and map controls to frameworks like the OSPS Baseline and NIST SSDF. Bring a project and a laptop; let\u2019s harden it together.",
+   "startsAt": "2026-11-09T09:10:00",
+   "endsAt": "2026-11-09T09:35:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "f24bbabc-3191-4e09-8a2c-8fc6ced95aa6"
+   ],
+   "categoryItems": [
+    468976,
+    468980,
+    469279,
+    502736
+   ],
+   "questionAnswers": [],
+   "roomId": 83572,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": false
+  },
+  {
+   "id": "1264811",
+   "title": "MCP Without Polling: Building Reactive Agents with Continuous Queries",
+   "description": "Polling current state forces agents to trade freshness for repeated queries and can miss conditions that appear and disappear between checks. Forwarding every raw change makes models spend expensive tokens deciding which events matter.\r\n\r\nThis session shows MCP developers and agent builders how continuous graph queries in Drasi turn changes in existing data sources into streams of meaningful business events. Examples include orders becoming high-value and orders remaining unprocessed beyond a deadline, even when no new database write occurs.\r\n\r\nThe demo follows an agent discovering streams, choosing a subscription, and using MCP tools to investigate and act when a relevant event arrives. A prototype of MCP's emerging Events extension, a proposed standard for event discovery and subscriptions, connects producers and agents.\r\n\r\nAttendees will learn to separate event detection from agent reasoning, understand query-result transitions, and combine event subscriptions with authoritative tool calls.",
+   "startsAt": "2026-11-09T09:20:00",
+   "endsAt": "2026-11-09T09:45:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "829de4ce-248e-4966-b4c3-462242fe51af"
+   ],
+   "categoryItems": [
+    468976,
+    468982,
+    469323,
+    502726
+   ],
+   "questionAnswers": [
+    {
+     "questionId": 141228,
+     "answerValue": "https://sessionize.com/download/iylaydei~RsH8TYX443m83wBWH9meyP.pdf~mcp-without-polling.pdf"
+    }
+   ],
+   "roomId": 83574,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1268168",
+   "title": "Creating VEX Documents at Scale: A Look into One Supplier's Process",
+   "description": "What is a VEX? What goes into it? How should you determine that? When and how should you create one? Why do you need one? This session answers those questions and more through a case study into how a large software supplier, Microsoft, is preparing to automate the creation of VEX documents. Specifically, the CSAF VEX specification required fields and options will be covered, however OpenVEX will also be investigated. \r\n\r\nVEX documents are now a vital necessity for secure usage and inclusion of Open Source Software. They are required to supply software in compliance with EU CRA, alongside SBOM. With AI accelerating the rate of discovery of security vulnerabilities, VEX documents will be more and more applicable, as software suppliers will have trouble keeping up and many vulnerabilities are not exploitable.",
+   "startsAt": "2026-11-09T09:45:00",
+   "endsAt": "2026-11-09T09:55:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "172a6c0a-8199-4cd1-adfc-a603a7d3bda8"
+   ],
+   "categoryItems": [
+    468978,
+    468981,
+    469274,
+    502736
+   ],
+   "questionAnswers": [
+    {
+     "questionId": 141228,
+     "answerValue": "https://sessionize.com/download/ibraltep~R5mJwDhznBw8X9siqYw8tN.pdf~vex-presentation-2.pdf"
+    }
+   ],
+   "roomId": 83572,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1313055",
+   "title": "Agents Will Be Judged on Where They Run",
+   "description": "The agent ecosystem has grown up assuming a hosted frontier model and an outbound connection. That assumption is fine for a lot of use cases and disqualifying for a lot of others: regulated industries, public sector, anywhere data residency or air-gapped operation is the starting condition rather than an edge case.\r\n\r\n\r\nThose constraints aren't going away, and the capability gap that made them painful is closing fast as open-weight models get good enough for scoped, tool-using work. This talk argues that placement is about to become a first-class design concern for agentic systems, not a deployment afterthought, and looks at what has to be true of the runtime for an agent loop to work with no egress: local tool access, local audit, local identity, and a lifecycle you can operate across sites you can't reach.",
+   "startsAt": "2026-11-09T09:50:00",
+   "endsAt": "2026-11-09T09:55:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "6efd0780-d075-4bb5-b51a-30a865197db4"
+   ],
+   "categoryItems": [
+    503262,
+    468982,
+    502726,
+    519954
+   ],
+   "questionAnswers": [],
+   "roomId": 83574,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1311929",
+   "title": "MCP Is the New Internal API Surface ",
+   "description": "MCP makes it radically easier to expose tools, data, and actions to agents. That\u2019s great. It also means organizations are about to create a lot of MCP servers.\r\n\r\nWe\u2019ve seen this pattern before with internal APIs: rapid adoption, duplicated capabilities, unclear ownership, inconsistent standards, stale interfaces, and eventually a platform team asking, \u201cWait, how many of these do we have?\u201d\r\n\r\nIn five minutes, we\u2019ll look at what the last decade of API and platform engineering can teach us about the next few years of MCP, and which mistakes we really don\u2019t need to make twice.",
+   "startsAt": "2026-11-09T10:00:00",
+   "endsAt": "2026-11-09T10:05:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "1708bdeb-e8d9-4628-a147-e9878198c900"
+   ],
+   "categoryItems": [
+    503262,
+    468982,
+    502726,
+    519954
+   ],
+   "questionAnswers": [
+    {
+     "questionId": 141228,
+     "answerValue": "https://sessionize.com/download/cbakyelta~VELBtMZQMnB3CComYNg87o.pdf~mcp-is-the-new-internal-api-surface.pdf"
+    }
+   ],
+   "roomId": 83574,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1265217",
+   "title": "Upstream First Security: Keeping Telco Infrastructure Secure at Cloud Native Scale",
+   "description": "Telco infrastructure runs on bare metal that powers 5G mobile networks. When a CVE drops in Go dependency used by the stack, we cannot wait until next quarter. Telco regulatory requirements mean patch latency is measured in days. Time from discovery to exploitation has shank from days to hours, we've had to rethink how we work with OS and adopt a strict upstream-first approach.\r\nWe maintain bare metal Kubernetes infrastructure by using CNCF projects such as Metal3 and Cluster API. This talk covers how we triage CVEs across a dependency tree spanning 15+ upstream repositories, why we always fix issues upstream first instead of local patches, and how we structure release cadence so that production stays within one minor version of the latest.\r\nWe will share numbers, including the time to fix CVEs and the cost of backporting vs. upgrading. We discuss how we automated dependency scanning in multi-repository CNCF project. This are mechanics of keeping infrastructure secure with open source.\r\n",
+   "startsAt": "2026-11-09T10:00:00",
+   "endsAt": "2026-11-09T10:25:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "c5df0d69-bc2a-41f5-9763-0a79ec29007a",
+    "965a24ef-e849-46c0-8ff9-4f7a835e47f9"
+   ],
+   "categoryItems": [
+    468976,
+    468982,
+    469276,
+    502736
+   ],
+   "questionAnswers": [],
+   "roomId": 83572,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": false
+  },
+  {
+   "id": "1311927",
+   "title": "Postcards From Tomorrow: Powering the Agentic Era Through Open Source ",
+   "description": "Cloud native excellence in open-weight model serving, training, and agent usage has arrived in Kubernetes, and cost is driving this imperative. Serving, retraining and refining, and using open weight models like Qwen from model registries like Hugging Face is now easy enough that the entire ecosystem is taking action, driving up density, precision, and performance. This year, every engineer -- and thanks to models, many who work in other roles -- can take advantage of a faster, more cost-effective, and more secure Kubernetes. Opportunities in cloud native AI are driving the entire industry and the community is meeting the moment, reducing dependence on frontier models for their workloads and creating a more independent future with open source. You\u2019ll leave inspired to build your own custom learning loops to power your agents via open source software paired with open weight models. ",
+   "startsAt": "2026-11-09T10:10:00",
+   "endsAt": "2026-11-09T10:15:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "c20a642a-aea4-4591-ad68-d172f20dc828"
+   ],
+   "categoryItems": [
+    503262,
+    468982,
+    502726,
+    519954
+   ],
+   "questionAnswers": [],
+   "roomId": 83574,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1325759",
+   "title": "Code Nobody Wrote: Running Agents You Can't Trust",
+   "description": "An agent writes a script, runs it, and moves on. Nobody reviewed it, nobody approved it, and no author ever existed to vouch for it. In 2026 that agent is often running inside a pod on your cluster. To be useful it needs real credentials, and to be productive it runs with no human watching and approving each step. If you deploy agents, then allowing this safely is your responsibility, and how you do it depends on two things. What does the workload need? And who is driving it?",
+   "startsAt": "2026-11-09T10:20:00",
+   "endsAt": "2026-11-09T10:25:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "02fd83c1-648b-485d-864e-51c7cbb01af0"
+   ],
+   "categoryItems": [
+    503262,
+    468982,
+    502726,
+    519954
+   ],
+   "questionAnswers": [
+    {
+     "questionId": 141228,
+     "answerValue": "https://sessionize.com/download/idionra~3WtFzGh6svSQn11KTbPnG1.pdf~todd-neal-mcp-agentics-day-2026.pdf"
+    }
+   ],
+   "roomId": 83574,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1309411",
+   "title": "AM Break",
+   "description": "Menu:\r\n\r\nAssorted danishes\r\nOvernight oats",
+   "startsAt": "2026-11-09T10:25:00",
+   "endsAt": "2026-11-09T10:40:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [],
+   "categoryItems": [
+    502726,
+    502735,
+    502736,
+    502889
+   ],
+   "questionAnswers": [],
+   "roomId": 88675,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1269818",
+   "title": "Securing the Agentic Tool Layer: A Runtime Defense Framework for MCP Agent Deployments",
+   "description": "Most LLM safety work guards the user prompt. MCP agents face a different problem: the attack arrives through the tools the agent already trusts. A poisoned tool description, a hidden instruction in a tool response, or a malicious server pulled from a public registry can hijack an agent without ever touching the user.\r\n\r\nThis session walks through a threat taxonomy built from 80+ techniques catalogued under SAFE-MCP, a Linux Foundation/OpenSSF project, then shows a runtime proxy that validates tool calls and responses inline, with no changes to the agent or server. In red-team testing across five model backends, it cut tool-poisoning success from 74% to under 9% and indirect injection from 47% to under 6%, adding under 120ms per call.\r\n\r\nAttendees leave with a concrete defense architecture, the false-positive tradeoffs that matter in production, and what to vet before approving an MCP server for their stack.",
+   "startsAt": "2026-11-09T10:40:00",
+   "endsAt": "2026-11-09T11:05:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "4cd9b5d2-e4fe-456d-bafa-641cfbf6cf7f",
+    "5c864312-c3b7-40b5-8ee2-0ee9e56cd6d3"
+   ],
+   "categoryItems": [
+    468976,
+    468981,
+    469324,
+    502726
+   ],
+   "questionAnswers": [
+    {
+     "questionId": 141228,
+     "answerValue": "https://sessionize.com/download/syaujwe~wQpowd4aDHeLRKhNvnhL8y.pptx~shieldmcp_agentics_day_2026.pptx"
+    }
+   ],
+   "roomId": 83574,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1247270",
+   "title": "Why Post-quantum Authentication Will Break K8s (and How Merkle Trees Fix It)",
+   "description": "The industry is actively working to secure our key exchanges against quantum threats, but what about our identities? As industry leaders update their PQC migration timeline to 2029, the focus is urgently shifting from encryption to the untackled authentication challenge.\r\nTraditional PKIs retrofitted with ML-DSA face crippling performance degradation from massive signatures and compute overhead. So, how do we secure K8s\u2019 internal communication without grinding the control plane to a halt?\r\nIn this talk we:\r\n+ detail the reality of (lacking) ML-DSA support across the ecosystem which makes even experimenting with PQC incredibly difficult\r\n+ analyze the critical compute and size bottlenecks introduced by standard ML-DSA signatures with a local PKI and hard numbers\r\n+ explore Merkle Tree Certificates as a high-performance alternative to side-step PQC signature limits\r\n+ demonstrate how to run an MTC PKI locally and map out how K8s can adopt this approach for its internal certificate requirements",
+   "startsAt": "2026-11-09T10:40:00",
+   "endsAt": "2026-11-09T11:05:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "aa66bd16-d91e-488f-8692-11c873c39e6a"
+   ],
+   "categoryItems": [
+    468976,
+    468981,
+    469277,
+    502736
+   ],
+   "questionAnswers": [],
+   "roomId": 83572,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1269246",
+   "title": "Building Governance for Hybrid Architectures for Agentic Systems",
+   "description": "Autonomous AI agents are shifting to dynamic orchestrators that switch between local open-source models and external closed LLMs. When an agent autonomously escalates complex requests to public APIs or falls back to a local model, managing data sovereignty, routing rules, and governance becomes a critical platform engineering hurdle.\r\n\r\nThis presentation offers an end-to-end traffic governance framework for hybrid agentic loops using CNCF infrastructure. We showcase a declarative architecture using Kuadrant to build a secure AI routing tier. By coupling SPIFFE/SPIRE workload identities with Kuadrant's authorization layer, we ensure external API keys are never exposed and only validated agents can invoke specific model endpoints managed by Kubeflow's KServe. Finally, we demonstrate how guardrails play an important role in governance, ensuring payload verification across both local and cloud-hosted model targets.",
+   "startsAt": "2026-11-09T11:15:00",
+   "endsAt": "2026-11-09T11:40:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "92db3c1b-32c7-4c81-a214-b433604b7e44"
+   ],
+   "categoryItems": [
+    468976,
+    468982,
+    469328,
+    502726
+   ],
+   "questionAnswers": [],
+   "roomId": 83574,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  },
+  {
+   "id": "1268232",
+   "title": "Traffic Handling Patterns in the Agentic Era",
+   "description": "As MCP adoption grows, platform teams need more than generic HTTP proxying: they need protocol awareness, policy enforcement, tool-level routing, and safe egress controls for agent traffic. \r\n\r\nThis session walks through Envoy\u2019s journey toward native MCP gateway support, including MCP protocol awareness, MCP transcoding, native MCP filters, per-user tool filtering, and integration with policy engines such as Open Policy Agent.\r\n\r\nWe will cover real-world architecture patterns from Cisco\u2019s use as MCP/LLM gateway, Google\u2019s egress agent gateway traffic policy with an agent registry, and sandbox ambient/local agent gateway deployments, as well the trends in agent mesh. ",
+   "startsAt": "2026-11-09T11:15:00",
+   "endsAt": "2026-11-09T11:40:00",
+   "isServiceSession": false,
+   "isPlenumSession": false,
+   "speakers": [
+    "087db6f3-ce25-4dde-a15c-e7e84a4a6f28",
+    "3d857ae1-bd7b-4d77-9a81-05513f7c2af8"
+   ],
+   "categoryItems": [
+    468976,
+    468982,
+    469327,
+    502726
+   ],
+   "questionAnswers": [],
+   "roomId": 88646,
+   "liveUrl": null,
+   "recordingUrl": null,
+   "status": "Accepted",
+   "isInformed": true,
+   "isConfirmed": true
+  }
+ ],
+ "speakers": [
+  {
+   "id": "f24bbabc-3191-4e09-8a2c-8fc6ced95aa6",
+   "firstName": "Adolfo",
+   "lastName": "Garc\u00eda Veytia",
+   "bio": "Adolfo Garc\u00eda Veytia (@puerco) is one of the Kubernetes SIG Release Technical Leads and actively works on the Release En",
+   "tagLine": "Staff Software Engineer",
+   "profilePicture": "https://cdn.sessionize.com/image/6277-400o400o1-Vkh4WDxw9GLkmUpWspcu6b.png",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "Twitter",
+     "url": "https://twitter.com/puerco",
+     "linkType": "Twitter"
+    },
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/puerco/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Blog",
+     "url": "https://chainguard.dev/unchained",
+     "linkType": "Blog"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://carabiner.dev/",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/puerco",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1269816
+   ],
+   "fullName": "Adolfo Garc\u00eda Veytia",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 129697,
+     "answerValue": "Carabiner Systems"
+    },
+    {
+     "questionId": 129698,
+     "answerValue": "Founding Engineer"
+    }
+   ]
+  },
+  {
+   "id": "056cd19a-de81-494f-b813-3838ee25a315",
+   "firstName": "Alex",
+   "lastName": "Zenla",
+   "bio": "I am a Founder & CTO at Edera where we build technology for securing containers using hypervisors. I've contributed to m",
+   "tagLine": "CTO @ Edera",
+   "profilePicture": "https://cdn.sessionize.com/image/3a07-400o400o1-NkhHTJuLAM9P1L4FY1WDsn.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/azenla/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://edera.dev",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/alexzenla",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1312041
+   ],
+   "fullName": "Alex Zenla",
+   "categoryItems": [],
+   "questionAnswers": []
+  },
+  {
+   "id": "829de4ce-248e-4966-b4c3-462242fe51af",
+   "firstName": "Aman",
+   "lastName": "Singh",
+   "bio": "Principal Software Engineer in the office of Microsoft Azure's CTO and maintainer of Drasi. Organizer of the CNCF commun",
+   "tagLine": "Principal Software Engineer at office of Microsoft Azure CTO",
+   "profilePicture": "https://cdn.sessionize.com/image/e44b-400o400o1-JD9UFVjf4FUqA6KKjpxAfx.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/amansinghoriginal/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/aman-singh",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1264811
+   ],
+   "fullName": "Aman Singh",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 129697,
+     "answerValue": "Microsoft"
+    },
+    {
+     "questionId": 129698,
+     "answerValue": "Engineering Leader at Microsoft Azure CTO's Office \u00b7 Drasi Maintainer \u00b7 CNCF organizer"
+    }
+   ]
+  },
+  {
+   "id": "1708bdeb-e8d9-4628-a147-e9878198c900",
+   "firstName": "Baruch",
+   "lastName": "Sadogursky",
+   "bio": "Baruch Sadogursky (@jbaruch) did Java before it had generics, DevOps before there was Docker, and DevRel before it had a",
+   "tagLine": "Head of DevRel, Port.io",
+   "profilePicture": "https://cdn.sessionize.com/image/8be5-400o400o1-QMdc8xfkg73FjvFGnuqQdy.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "X (Twitter)",
+     "url": "http://twitter.com/jbaruch",
+     "linkType": "Twitter"
+    },
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/jbaruch/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Blog",
+     "url": "https://speaking.jbaru.ch/",
+     "linkType": "Blog"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://port.io",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "BlueSky",
+     "url": "https://bsky.app/profile/jbaru.ch",
+     "linkType": "Other"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/jbaruch",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1311929
+   ],
+   "fullName": "Baruch Sadogursky",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 129697,
+     "answerValue": "Port.io"
+    },
+    {
+     "questionId": 129698,
+     "answerValue": "Head of DevRel"
+    }
+   ]
+  },
+  {
+   "id": "3d857ae1-bd7b-4d77-9a81-05513f7c2af8",
+   "firstName": "Boteng",
+   "lastName": "Yao",
+   "bio": "Boteng Yao is a Senior Software Engineer at Google, Senior Envoy Maintainer. He specializes in data plane architecture, ",
+   "tagLine": "Senior Software Engineer, Google",
+   "profilePicture": "https://cdn.sessionize.com/image/100c-400o400o1-NWvfG9jW7QkWZxqLCWo7vy.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/botengyao",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://www.google.com",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/boteng-yao",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1268232,
+    1268398
+   ],
+   "fullName": "Boteng Yao",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 129697,
+     "answerValue": "Google"
+    },
+    {
+     "questionId": 129698,
+     "answerValue": "Senior Software Engineer"
+    }
+   ]
+  },
+  {
+   "id": "15e89e42-ee4b-4ba1-bbe6-9a4704e17394",
+   "firstName": "Chris",
+   "lastName": "Mazur",
+   "bio": "Helping to connect the Software Development Community in the\r\nSouthern Hemisphere since 2011 | Founder Cloud Native Summ",
+   "tagLine": "Director of Community Development at Tetrate",
+   "profilePicture": "https://cdn.sessionize.com/image/83f1-400o400o1-UM71FsWTehWmCgNV8bAwez.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/matedev/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://mate.dev",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/mate",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1312031,
+    1312051
+   ],
+   "fullName": "Chris Mazur",
+   "categoryItems": [],
+   "questionAnswers": []
+  },
+  {
+   "id": "aa66bd16-d91e-488f-8692-11c873c39e6a",
+   "firstName": "Fabian",
+   "lastName": "Kammel",
+   "bio": "Fabian Kammel is a Senior Security Consultant at ControlPlane, where he helps to make the (cloud-native) world a safer p",
+   "tagLine": "Senior Security Consultant, ControlPlane",
+   "profilePicture": "https://cdn.sessionize.com/image/f353-400o400o1-Ha82x8HfxR8WqftWn4Jw8V.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "X (Twitter)",
+     "url": "https://twitter.com/datosh18",
+     "linkType": "Twitter"
+    },
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/fabian-kammel-7781b7173/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://control-plane.io/",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/fabian-kammel",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1247270
+   ],
+   "fullName": "Fabian Kammel",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 129697,
+     "answerValue": "ControlPlane"
+    },
+    {
+     "questionId": 129698,
+     "answerValue": "Principal Security Consultant"
+    }
+   ]
+  },
+  {
+   "id": "5c864312-c3b7-40b5-8ee2-0ee9e56cd6d3",
+   "firstName": "Harshul",
+   "lastName": "Jain",
+   "bio": "I'm Harshul, Senior Software Engineer at Audible. I build distributed systems and GenAI platforms at scale - feature sto",
+   "tagLine": "Audible, Senior Software Engineer",
+   "profilePicture": "https://cdn.sessionize.com/image/c0eb-400o400o1-fHjYFGEC65jncTrJQCDKbc.png",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "X (Twitter)",
+     "url": "https://x.com/hj1393",
+     "linkType": "Twitter"
+    },
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/hjain1393/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Blog",
+     "url": "https://harshuljain.substack.com/",
+     "linkType": "Blog"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://www.audible.com/",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/harshul-jain",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1269818
+   ],
+   "fullName": "Harshul Jain",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 129697,
+     "answerValue": "Audible"
+    },
+    {
+     "questionId": 129698,
+     "answerValue": "Senior Software Engineer - ML/AI"
+    }
+   ]
+  },
+  {
+   "id": "c5df0d69-bc2a-41f5-9763-0a79ec29007a",
+   "firstName": "Jan",
+   "lastName": "Melen",
+   "bio": "Jan Mel\u00e9n is an expert in networking, open-source software, and cloud technologies, with a career spanning over two deca",
+   "tagLine": "Open-source advocate on a mission to reshape Ericsson\u2019s development culture",
+   "profilePicture": "https://cdn.sessionize.com/image/56f1-400o400o1-Qi9BntDz632vzYLaroZteR.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://fi.linkedin.com/in/jan-melen-07a45457",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://www.est.tech/",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/jan-melen",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1265217
+   ],
+   "fullName": "Jan Melen",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 129697,
+     "answerValue": "Ericsson"
+    },
+    {
+     "questionId": 129698,
+     "answerValue": "General Manager"
+    }
+   ]
+  },
+  {
+   "id": "172a6c0a-8199-4cd1-adfc-a603a7d3bda8",
+   "firstName": "Jeff",
+   "lastName": "Mendoza",
+   "bio": "Jeff is a software engineer at Microsoft, focused on Supply Chain Security, and Open Source security and legal complianc",
+   "tagLine": "Senior Software Engineer, Supply Chain Security",
+   "profilePicture": "https://cdn.sessionize.com/image/aa68-400o400o1-fitBz9P8oYbHvNa7nwqUEy.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/jeff-mendoza-6849001/",
+     "linkType": "LinkedIn"
+    }
+   ],
+   "sessions": [
+    1268168
+   ],
+   "fullName": "Jeff Mendoza",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 129697,
+     "answerValue": "Microsoft"
+    },
+    {
+     "questionId": 129698,
+     "answerValue": "Senior Software Engineer, Supply Chain Security"
+    }
+   ]
+  },
+  {
+   "id": "965a24ef-e849-46c0-8ff9-4f7a835e47f9",
+   "firstName": "Kashif",
+   "lastName": "Khan",
+   "bio": "Kashif Khan is a co-chair of CNCF TAG Infrastructure and maintainer of the CNCF project Metal3.io for 6 years. He works ",
+   "tagLine": "Maintainer, Open source Architect, PhD",
+   "profilePicture": "https://cdn.sessionize.com/image/9cf6-400o400o1-HEKAVUoLqFusTswwzEe6fT.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/kashifnizamkhan/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://www.est.tech/",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/kashif-khan",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1265217
+   ],
+   "fullName": "Kashif Khan",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 129697,
+     "answerValue": "Ericsson"
+    },
+    {
+     "questionId": 129698,
+     "answerValue": "Co-Chair CNCF TAG Infrastructure, Maintainer, Open Source Architect"
+    }
+   ]
+  },
+  {
+   "id": "3a3764a1-7dfb-4ee5-8306-f2173fd9e606",
+   "firstName": "Kasper",
+   "lastName": "Borg Nissen",
+   "bio": "Kasper is a CNCF Ambassador, former KubeCon+CloudNativeCon Co-Chair, Golden Kubestronaut, KCD Organizer, and CNCG Group ",
+   "tagLine": "Principal Developer Advocate at Dash0, former Co-Chair KubeCon+CloudNativeCon EU/NA, CNCF Ambassador, Golden Kubestronaut, KCD Organizer, Meet-up organizer ",
+   "profilePicture": "https://cdn.sessionize.com/image/fe2c-400o400o1-Tqqw1ZtsMTx34saGpCwra9.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "X (Twitter)",
+     "url": "https://twitter.com/phennex",
+     "linkType": "Twitter"
+    },
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/kaspernissen/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Blog",
+     "url": "https://kaspernissen.xyz/",
+     "linkType": "Blog"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://dash0.com",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Credly",
+     "url": "https://www.credly.com/users/kasper-nissen/badges",
+     "linkType": "Other"
+    },
+    {
+     "title": "Public Relations",
+     "url": "https://github.com/kaspernissen",
+     "linkType": "Other"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/kaspernissen",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1312031,
+    1312051
+   ],
+   "fullName": "Kasper Borg Nissen",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 129697,
+     "answerValue": "Dash0"
+    },
+    {
+     "questionId": 129698,
+     "answerValue": "Principal Developer Advocate"
+    }
+   ]
+  },
+  {
+   "id": "389ea35f-2078-45fe-8883-05462ea3a5a1",
+   "firstName": "Manik",
+   "lastName": "Surtani",
+   "bio": "Manik is co-founder and CTO of the AAIF, ensuring AI agents are built on open foundations. He launched AAIF while at Blo",
+   "tagLine": "CTO and Co-founder, AAIF",
+   "profilePicture": "https://cdn.sessionize.com/image/0874-400o400o1-VRAezd9ysm2nqbMB1a6gKw.jpg",
+   "isTopSpeaker": false,
+   "links": [],
+   "sessions": [
+    1365063
+   ],
+   "fullName": "Manik Surtani",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 129697,
+     "answerValue": "Agentic AI Foundation"
+    },
+    {
+     "questionId": 129698,
+     "answerValue": "CTO and Co-founder"
+    }
+   ]
+  },
+  {
+   "id": "087db6f3-ce25-4dde-a15c-e7e84a4a6f28",
+   "firstName": "Pradheep",
+   "lastName": "Shrinivasan",
+   "bio": "Pradheep Shrinivasan is a Senior technical lead in Cisco currently leading the development of Zero trust network. Curren",
+   "tagLine": "Cisco, Senior Techical Lead",
+   "profilePicture": "https://cdn.sessionize.com/image/4733-400o400o1-GfTYKGvNZmkxbnunbhPX6v.png",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/pradheepshrinivasan/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://www.cisco.com",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/pradheep-shrinivasan",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1268232
+   ],
+   "fullName": "Pradheep Shrinivasan",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 129697,
+     "answerValue": "Cisco"
+    },
+    {
+     "questionId": 129698,
+     "answerValue": "Senior Technical Leader"
+    }
+   ]
+  },
+  {
+   "id": "c20a642a-aea4-4591-ad68-d172f20dc828",
+   "firstName": "Ralph",
+   "lastName": "Squillace",
+   "bio": "Professionally trained in history; don't tell him, because he's professionally suffered in distributed applications for ",
+   "tagLine": "Principal PM, Microsoft",
+   "profilePicture": "https://cdn.sessionize.com/image/fc89-400o400o1-nwNp4WvDqvkfm3edpw67Ch.png",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "X (Twitter)",
+     "url": "https://twitter.com/ralph_squillace",
+     "linkType": "Twitter"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://microsoft.com",
+     "linkType": "Company_Website"
+    }
+   ],
+   "sessions": [
+    1311927
+   ],
+   "fullName": "Ralph Squillace",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 129697,
+     "answerValue": "Microsoft"
+    },
+    {
+     "questionId": 129698,
+     "answerValue": "Principal Product Manager"
+    }
+   ]
+  },
+  {
+   "id": "6efd0780-d075-4bb5-b51a-30a865197db4",
+   "firstName": "Saad",
+   "lastName": "Malik",
+   "bio": "As the CTO and Co-founder at Spectro Cloud, Saad Malik leads technology strategy and innovation across modern infrastruc",
+   "tagLine": null,
+   "profilePicture": "https://cdn.sessionize.com/image/8040-400o400o1-HpFVL5u2oSpwo1bAqPyMzS.jpg",
+   "isTopSpeaker": false,
+   "links": [],
+   "sessions": [
+    1313055,
+    1342480
+   ],
+   "fullName": "Saad Malik",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 129697,
+     "answerValue": "Spectro Cloud"
+    },
+    {
+     "questionId": 129698,
+     "answerValue": "CTO & Co-Founder"
+    }
+   ]
+  },
+  {
+   "id": "4cd9b5d2-e4fe-456d-bafa-641cfbf6cf7f",
+   "firstName": "Saurabh",
+   "lastName": "Yergattikar",
+   "bio": "Saurabh Yergattikar is a software architect and engineering leader with 15 years building mission-critical systems at sc",
+   "tagLine": "Engineering Leader at eBay | Open-Source AI & Security Innovator | Speaker on AI Infrastructure, Dev Productivity & Cybersecurity",
+   "profilePicture": "https://cdn.sessionize.com/image/310b-400o400o1-WqB2QXXAQmZ4mgjBiCfSht.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "X (Twitter)",
+     "url": "https://x.com/saury3827",
+     "linkType": "Twitter"
+    },
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/saurabh-yergattikar-736bab62/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Blog",
+     "url": "https://saurabh-yergattikar.dev/",
+     "linkType": "Blog"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://saurabh-yergattikar.dev/",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/saurabh-yergattikar",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1269818,
+    1269826
+   ],
+   "fullName": "Saurabh Yergattikar",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 129697,
+     "answerValue": "eBay"
+    },
+    {
+     "questionId": 129698,
+     "answerValue": "Member of Technical Staff-2"
+    }
+   ]
+  },
+  {
+   "id": "78c9dff3-c3d9-422a-bee7-6dd6934657ad",
+   "firstName": "Stephen",
+   "lastName": "Augustus",
+   "bio": "Technical Architect, Office of the CTO at Bloomberg",
+   "tagLine": "Technical Architect, Office of the CTO at Bloomberg",
+   "profilePicture": "https://cdn.sessionize.com/image/894a-400o400o1-e6075315-d044-43b6-81eb-82db05943ded.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "Twitter",
+     "url": "https://twitter.com/stephenaugustus",
+     "linkType": "Twitter"
+    },
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/stephenaugustus",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Blog",
+     "url": "https://whois.auggie.dev/",
+     "linkType": "Blog"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://www.techatbloomberg.com/opensource",
+     "linkType": "Company_Website"
+    }
+   ],
+   "sessions": [
+    1312041,
+    1312060
+   ],
+   "fullName": "Stephen Augustus",
+   "categoryItems": [],
+   "questionAnswers": []
+  },
+  {
+   "id": "02fd83c1-648b-485d-864e-51c7cbb01af0",
+   "firstName": "Todd",
+   "lastName": "Neal",
+   "bio": "Todd is a Principal Software Engineer at AWS working on the Kubernetes data plane, with a current focus on the trust bou",
+   "tagLine": null,
+   "profilePicture": "https://cdn.sessionize.com/image/3cd9-400o400o1-YaeaBwyzhYAVFSha9HhevQ.jpg",
+   "isTopSpeaker": false,
+   "links": [],
+   "sessions": [
+    1325759
+   ],
+   "fullName": "Todd Neal",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 129697,
+     "answerValue": "Amazon Web Services "
+    },
+    {
+     "questionId": 129698,
+     "answerValue": "Principal Software Developer"
+    }
+   ]
+  },
+  {
+   "id": "92db3c1b-32c7-4c81-a214-b433604b7e44",
+   "firstName": "Valentina",
+   "lastName": "Rodriguez Sosa",
+   "bio": "I've more than 18 years of experience defining and implementing software architectures by leading\r\nhigh-performance team",
+   "tagLine": "Principal AI Architect FSI | Safety & Security",
+   "profilePicture": "https://cdn.sessionize.com/image/8b16-400o400o1-wPNnhyXwpc5pdyans66eef.jpg",
+   "isTopSpeaker": false,
+   "links": [
+    {
+     "title": "LinkedIn",
+     "url": "https://www.linkedin.com/in/valentina-rodriguez-sosa/",
+     "linkType": "LinkedIn"
+    },
+    {
+     "title": "Company Website",
+     "url": "https://www.redhat.com",
+     "linkType": "Company_Website"
+    },
+    {
+     "title": "Sessionize",
+     "url": "https://sessionize.com/valentina-rodriguez-sosa",
+     "linkType": "Sessionize"
+    }
+   ],
+   "sessions": [
+    1269246
+   ],
+   "fullName": "Valentina Rodriguez Sosa",
+   "categoryItems": [],
+   "questionAnswers": [
+    {
+     "questionId": 129697,
+     "answerValue": "Red Hat"
+    },
+    {
+     "questionId": 129698,
+     "answerValue": "Principal Architect"
+    }
+   ]
+  }
+ ],
+ "questions": [
+  {
+   "id": 129697,
+   "question": "Company",
+   "questionType": "Short_Text",
+   "sort": 48
+  },
+  {
+   "id": 129698,
+   "question": "Speaker Title",
+   "questionType": "Short_Text",
+   "sort": 47
+  },
+  {
+   "id": 141228,
+   "question": "Presentation Slides",
+   "questionType": "File_upload",
+   "sort": 68
+  },
+  {
+   "id": 144090,
+   "question": "Event Logo",
+   "questionType": "Web_address",
+   "sort": 94
+  }
+ ],
+ "categories": [
+  {
+   "id": 129733,
+   "title": "Agentics Day: MCP + Agents Topics ",
+   "type": "session",
+   "items": [
+    {
+     "id": 469323,
+     "name": "Building MCP Servers + Clients",
+     "sort": 2
+    },
+    {
+     "id": 469324,
+     "name": "Security + Trust + Reliability",
+     "sort": 3
+    },
+    {
+     "id": 469327,
+     "name": "MCP in Production: Case Studies",
+     "sort": 6
+    },
+    {
+     "id": 469328,
+     "name": "Enterprise Integration + Governance",
+     "sort": 7
+    }
+   ]
+  },
+  {
+   "id": 129708,
+   "title": "ArgoCon Topics",
+   "type": "session",
+   "items": []
+  },
+  {
+   "id": 129711,
+   "title": "BackstageCon Topics",
+   "type": "session",
+   "items": []
+  },
+  {
+   "id": 129715,
+   "title": "CiliumCon Topics",
+   "type": "session",
+   "items": []
+  },
+  {
+   "id": 129712,
+   "title": "Cloud Native AI + Inference Day",
+   "type": "session",
+   "items": []
+  },
+  {
+   "id": 129722,
+   "title": "FluxCon Topics",
+   "type": "session",
+   "items": []
+  },
+  {
+   "id": 129713,
+   "title": "Kubernetes on Edge Day Topics",
+   "type": "session",
+   "items": []
+  },
+  {
+   "id": 129716,
+   "title": "Observability Day Topics",
+   "type": "session",
+   "items": []
+  },
+  {
+   "id": 129723,
+   "title": "Open Source SecurityCon Topics",
+   "type": "session",
+   "items": [
+    {
+     "id": 469274,
+     "name": "Regulation + Public Policy",
+     "sort": 2
+    },
+    {
+     "id": 469276,
+     "name": "Open Source Management (OSPOs) + Security",
+     "sort": 4
+    },
+    {
+     "id": 469277,
+     "name": "Security Education",
+     "sort": 5
+    },
+    {
+     "id": 469279,
+     "name": "Supply Chain + Application Security",
+     "sort": 7
+    }
+   ]
+  },
+  {
+   "id": 134198,
+   "title": "OpenTofu Day Topics",
+   "type": "session",
+   "items": []
+  },
+  {
+   "id": 129714,
+   "title": "Platform Engineering Day Topics",
+   "type": "session",
+   "items": []
+  },
+  {
+   "id": 129682,
+   "title": "Session format",
+   "type": "session",
+   "items": [
+    {
+     "id": 468976,
+     "name": "Breakout Session",
+     "sort": 1
+    },
+    {
+     "id": 468978,
+     "name": "\u26a1 Lightning Talk",
+     "sort": 3
+    },
+    {
+     "id": 503262,
+     "name": "Keynote Session",
+     "sort": 4
+    }
+   ]
+  },
+  {
+   "id": 129683,
+   "title": "Audience Level",
+   "type": "session",
+   "items": [
+    {
+     "id": 468982,
+     "name": "Any Level",
+     "sort": 1
+    },
+    {
+     "id": 468980,
+     "name": "Beginner",
+     "sort": 2
+    },
+    {
+     "id": 468981,
+     "name": "Intermediate",
+     "sort": 3
+    }
+   ]
+  },
+  {
+   "id": 138727,
+   "title": "All Sessions",
+   "type": "session",
+   "items": [
+    {
+     "id": 502726,
+     "name": "Agentics Day: MCP + Agents",
+     "sort": 1
+    },
+    {
+     "id": 502735,
+     "name": "Cloud Native AI + Inference Day",
+     "sort": 5
+    },
+    {
+     "id": 502736,
+     "name": "Open Source SecurityCon",
+     "sort": 9
+    },
+    {
+     "id": 502889,
+     "name": "\u2615 Breaks",
+     "sort": 12
+    }
+   ]
+  },
+  {
+   "id": 143620,
+   "title": "Subtopic",
+   "type": "session",
+   "items": [
+    {
+     "id": 519954,
+     "name": "Sponsored",
+     "sort": 1
+    }
+   ]
+  }
+ ],
+ "rooms": [
+  {
+   "id": 83574,
+   "name": "Salt Palace | Level 1 | Grand Ballroom ACE",
+   "sort": 2
+  },
+  {
+   "id": 88646,
+   "name": "Salt Palace | Level 1 | Grand Ballroom GI",
+   "sort": 3
+  },
+  {
+   "id": 83572,
+   "name": "Salt Palace | Level 2 | 255 BC",
+   "sort": 11
+  },
+  {
+   "id": 88675,
+   "name": "Meeting Room Foyers",
+   "sort": 14
+  }
+ ]
+}

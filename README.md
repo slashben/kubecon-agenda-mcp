@@ -1,7 +1,8 @@
 # kubecon-agenda-mcp
 
 A read-only [MCP](https://modelcontextprotocol.io) server that lets AI agents search, browse and
-sanity-check a KubeCon + CloudNativeCon schedule, co-located events included.
+sanity-check a KubeCon + CloudNativeCon schedule: the main conference, every talk of the CNCF-hosted
+co-located events (ArgoCon, Agentics Day, SecurityCon, ...) and the Maintainer Summit.
 
 Default event: **KubeCon + CloudNativeCon North America 2026**, Salt Lake City, Nov 9-12.
 Point it at any other conference that publishes a [Sessionize](https://sessionize.com) schedule
@@ -134,9 +135,9 @@ Then ask things like:
 | Tool | What it does |
 | --- | --- |
 | `describe_event` | Event name, local time right now, valid days, tracks, rooms, CNCF project tags. Call first. |
-| `search_sessions` | AND-combined filters (`query`, `speaker`, `day`, `after`, `before`, `room`, `track`, `project`, `level`), ranked by relevance then time. Breaks hidden unless asked. |
+| `search_sessions` | AND-combined filters (`query`, `speaker`, `day`, `after`, `before`, `room`, `track`, `project`, `level`), ranked by relevance then time. Breaks hidden unless asked; off-site sponsor events can be excluded. |
 | `get_session` | Full abstract, speakers, room, level, project tags, slides/repo links for one id. |
-| `whats_on` | Sessions running at a moment (default: now in event time) and those starting within the next hour. |
+| `whats_on` | What is on at a moment (default: now in event time): talks in progress, talks starting within the hour, all-day blocks, off-site events. |
 | `find_speaker` | Speakers by name or company, with their sessions. |
 | `check_agenda` | Order a list of session ids, flag overlaps, unknown ids and venue changes with no walking time. |
 
@@ -167,7 +168,8 @@ docker run -p 8080:8080 kubecon-agenda-mcp
 
 | Variable | Default | Purpose |
 | --- | --- | --- |
-| `SESSIONIZE_EVENT_ID` | `svi82w6c` (KubeCon NA 2026) | Sessionize event id from the public `api/v2/<id>/view/All` feed |
+| `SESSIONIZE_FEEDS` | main, co-located and Maintainer Summit feeds of KubeCon NA 2026 | Comma-separated `id=label` pairs; each label becomes the session's `program` |
+| `SESSIONIZE_EVENT_ID` | unset | Shortcut for a single-feed event; ignored when `SESSIONIZE_FEEDS` is set |
 | `EVENT_NAME` | KubeCon + CloudNativeCon North America 2026 | Shown to agents |
 | `EVENT_SHORT_NAME` | KubeCon NA 2026 | Shown to agents |
 | `EVENT_CITY` | Salt Lake City | Shown to agents |
@@ -189,10 +191,13 @@ Map a custom domain with `gcloud beta run domain-mappings create` or put it behi
 
 ## How it works
 
-Sessionize publishes a public JSON view of the schedule (sessions, speakers, rooms, categories as
-separate tables). The server fetches it on demand, joins it into flat session records, caches the
-result in memory with ETag revalidation, and keeps serving the last good copy if the feed is down.
+Sessionize publishes a public JSON view of each schedule (sessions, speakers, rooms, categories as
+separate tables). Linux Foundation events spread one conference over several Sessionize events; the
+ids are in the `data-sched-config` attribute of each LF schedule page. The server fetches all of them
+concurrently, joins them into flat session records with a `program` field, caches the result in memory
+with ETag revalidation, and keeps serving the last good copy of any feed that is down.
 Search is a ranked AND over terms: a hit in the title outranks a tag, which outranks the abstract.
+Access notes LF appends to titles ("| ALL ACCESS PASS REQUIRED") are split into a separate field.
 
 No user data is stored. Tool calls are logged as one JSON line each (tool name, filter names used,
 result counts) for usage metrics; query text is never logged.

@@ -33,6 +33,7 @@ class Query:
     project: str | None = None
     level: str | None = None
     include_breaks: bool = False
+    include_offsite: bool = True
 
 
 def parse_time(value: str | None) -> time | None:
@@ -110,6 +111,8 @@ def search(agenda: Agenda, q: Query) -> list[Session]:
     for s in agenda.sessions:
         if not terms and not q.include_breaks and not s.is_talk:
             continue
+        if not q.include_offsite and s.is_offsite:
+            continue
         if day and s.day != day:
             continue
         t = s.start.time()
@@ -135,16 +138,23 @@ def search(agenda: Agenda, q: Query) -> list[Session]:
     return [s for _, s in hits]
 
 
-def whats_on(agenda: Agenda, at: datetime, lookahead_minutes: int = 60) -> tuple[list[Session], list[Session]]:
-    """Sessions running at `at`, and talks starting within the lookahead window."""
+@dataclass
+class WhatsOn:
+    running: list[Session]  # talks in progress, shortest first
+    upcoming: list[Session]  # talks starting within the window
+    blocks: list[Session]  # all-day umbrellas in progress (co-located days, showcase floor)
+    offsite: list[Session]  # off-site sponsor events in progress
+
+
+def whats_on(agenda: Agenda, at: datetime, lookahead_minutes: int = 60) -> WhatsOn:
+    """Split what is happening at `at` into talks, all-day blocks and off-site events."""
     horizon = at + timedelta(minutes=lookahead_minutes)
-    # Short talks first; all-day things like the showcase floor sink to the bottom.
-    running = sorted(
-        (s for s in agenda.sessions if s.start <= at < s.end and s.is_talk),
-        key=lambda s: (s.minutes, s.start, s.room),
-    )
-    upcoming = [s for s in agenda.sessions if at < s.start <= horizon and s.is_talk]
-    return running, upcoming
+    live = [s for s in agenda.sessions if s.start <= at < s.end and s.is_talk]
+    offsite = [s for s in live if s.is_offsite]
+    blocks = [s for s in live if s.is_block and not s.is_offsite]
+    running = sorted((s for s in live if not s.is_block and not s.is_offsite), key=lambda s: (s.start, s.room))
+    upcoming = [s for s in agenda.sessions if at < s.start <= horizon and s.is_talk and not s.is_block and not s.is_offsite]
+    return WhatsOn(running, upcoming, blocks, offsite)
 
 
 @dataclass
@@ -205,7 +215,11 @@ def fmt_line(s: Session) -> str:
     who = ", ".join(sp.name for sp in s.speakers)
     parts = [f"[{s.id}]", fmt_when(s), s.room or "-", s.track or "-", s.title]
     line = " | ".join(parts)
-    return f"{line} — {who}" if who else line
+    if who:
+        line += f" — {who}"
+    if s.access:
+        line += f" [{s.access.lower()}]"
+    return line
 
 
 def fmt_lines(sessions: list[Session], limit: int | None = None) -> str:
@@ -226,6 +240,10 @@ def fmt_detail(s: Session) -> str:
     ]
     if s.track:
         out.append(f"track: {s.track}")
+    if s.program:
+        out.append(f"program: {s.program}")
+    if s.access:
+        out.append(f"access: {s.access}")
     if s.level:
         out.append(f"level: {s.level}")
     if s.topics:
@@ -265,18 +283,21 @@ def fmt_speaker(sp: Speaker, sessions: list[Session]) -> str:
 def describe(agenda: Agenda, config: EventConfig) -> str:
     talks = [s for s in agenda.sessions if s.is_talk]
     day_labels = [f"{d} ({datetime.fromisoformat(d):%a})" for d in event_days(agenda)]
-    tracks = sorted({s.track for s in talks if s.track})
-    rooms = sorted({s.room for s in talks if s.room})
+    rooms = sorted({s.room for s in talks if s.room and not s.is_offsite})
     projects = sorted({p for s in talks for p in s.projects})
     now = now_local(config)
-    return "\n".join(
-        [
-            f"{config.name}, {config.city}. Times are {config.timezone} local; now there it is {now:%a %d %b %H:%M}.",
-            f"{len(talks)} sessions, {len(agenda.speakers)} speakers, {len(tracks)} tracks, {len(rooms)} rooms.",
-            f"Days: {', '.join(day_labels)}",
-            f"Tracks: {'; '.join(tracks)}",
-            f"Rooms: {'; '.join(rooms)}",
-            f"CNCF projects tagged: {', '.join(projects)}",
-            f"Official schedule: {config.official_url}",
-        ]
-    )
+    out = [
+        f"{config.name}, {config.city}. Times are {config.timezone} local; now there it is {now:%a %d %b %H:%M}.",
+        f"{len(talks)} sessions, {len(agenda.speakers)} speakers, {len(rooms)} rooms.",
+        f"Days: {', '.join(day_labels)}",
+    ]
+    for program in agenda.programs or ("",):
+        subset = [s for s in talks if s.program == program]
+        tracks = sorted({s.track for s in subset if s.track})
+        label = program or "Tracks"
+        out.append(f"{label} ({len(subset)} sessions). Tracks: {'; '.join(tracks)}")
+    out.append(f"Rooms: {'; '.join(rooms)}")
+    if projects:
+        out.append(f"CNCF projects tagged: {', '.join(projects)}")
+    out.append(f"Official schedule: {config.official_url}")
+    return "\n".join(out)

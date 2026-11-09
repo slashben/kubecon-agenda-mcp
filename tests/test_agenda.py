@@ -5,14 +5,16 @@ from pathlib import Path
 import pytest
 
 from kubecon_agenda_mcp import agenda as ag
-from kubecon_agenda_mcp.config import EventConfig
-from kubecon_agenda_mcp.feed import AgendaStore, normalize
+from kubecon_agenda_mcp.config import EventConfig, parse_feeds
+from kubecon_agenda_mcp.feed import AgendaStore, normalize, split_access
 
-FIXTURE = json.loads((Path(__file__).parent / "fixture_feed.json").read_text())
+HERE = Path(__file__).parent
+MAIN = json.loads((HERE / "fixture_feed.json").read_text())
+COLOCATED = json.loads((HERE / "fixture_colocated.json").read_text())
 CONFIG = EventConfig(
     name="Test Con",
     short_name="TestCon",
-    sessionize_id="x",
+    feeds=parse_feeds("main=Main conference,colo=Co-located events"),
     timezone="America/Denver",
     official_url="https://example.org",
     city="Salt Lake City",
@@ -22,7 +24,7 @@ CONFIG = EventConfig(
 
 @pytest.fixture
 def agenda():
-    return AgendaStore(CONFIG).load_static(FIXTURE)
+    return AgendaStore(CONFIG).load_static((MAIN, "Main conference"), (COLOCATED, "Co-located events"))
 
 
 def test_normalize_joins_rooms_speakers_and_categories(agenda):
@@ -32,6 +34,7 @@ def test_normalize_joins_rooms_speakers_and_categories(agenda):
     assert s.room == "Hyatt Regency, Level 2, Salt Lake Ballroom DE"
     assert s.venue == "Hyatt Regency"
     assert s.track == "Security"
+    assert s.program == "Main conference"
     assert s.start == datetime(2026, 11, 10, 14, 50)
     assert [sp.name for sp in s.speakers] == ["Ben Hirschberg", "Dr. Constanze Roedig"]
     assert s.speakers[0].company
@@ -58,9 +61,33 @@ def test_search_filters_combine(agenda):
     assert all("Hyatt" in h.room for h in hits)
 
 
-def test_colocated_day_blocks_are_searchable(agenda):
-    hits = ag.search(agenda, ag.Query(day="mon", track="Co-located"))
-    assert hits and all(h.is_colocated for h in hits)
+def test_colocated_individual_talks_are_searchable(agenda):
+    hits = ag.search(agenda, ag.Query(day="mon", track="Agentics Day"))
+    assert hits
+    talks = [h for h in hits if not h.is_block]
+    assert talks, "expected per-talk entries from the co-located feed, not just the day block"
+    assert all(h.program == "Co-located events" for h in talks)
+    assert all(h.is_colocated for h in talks)
+
+
+def test_main_feed_day_block_is_flagged_as_block(agenda):
+    block = agenda.by_id("1289780")  # Agentics Day umbrella from the main feed
+    assert block.is_block and block.is_colocated
+    assert block.access == "ALL ACCESS PASS REQUIRED"
+    assert "|" not in block.title
+
+
+@pytest.mark.parametrize(
+    "raw,title,access",
+    [
+        ("ArgoCon Hosted by CNCF - Full Day Event | ALL ACCESS PASS REQUIRED", "ArgoCon Hosted by CNCF - Full Day Event", "ALL ACCESS PASS REQUIRED"),
+        ("Azure Day | SEPARATE REGISTRATION REQUIRED", "Azure Day", "SEPARATE REGISTRATION REQUIRED"),
+        ("NVIDIA Workshop | SOLD OUT", "NVIDIA Workshop", "SOLD OUT"),
+        ("Kernel | Kubectl: a talk about pipes", "Kernel | Kubectl: a talk about pipes", ""),
+    ],
+)
+def test_split_access(raw, title, access):
+    assert split_access(raw) == (title, access)
 
 
 def test_breaks_hidden_unless_requested(agenda):
@@ -68,6 +95,10 @@ def test_breaks_hidden_unless_requested(agenda):
     with_breaks = ag.search(agenda, ag.Query(day="tue", include_breaks=True))
     assert all(s.is_talk for s in no_breaks)
     assert len(with_breaks) >= len(no_breaks)
+
+
+def test_offsite_can_be_excluded(agenda):
+    assert not any(s.is_offsite for s in ag.search(agenda, ag.Query(include_offsite=False)))
 
 
 @pytest.mark.parametrize(
@@ -93,10 +124,17 @@ def test_resolve_day_variants(agenda):
         ag.resolve_day("fri", agenda)
 
 
-def test_whats_on(agenda):
-    running, upcoming = ag.whats_on(agenda, datetime(2026, 11, 10, 15, 0), 60)
-    assert any(s.id == "1236746" for s in running)
-    assert all(datetime(2026, 11, 10, 15, 0) < s.start <= datetime(2026, 11, 10, 16, 0) for s in upcoming)
+def test_whats_on_separates_talks_from_blocks(agenda):
+    w = ag.whats_on(agenda, datetime(2026, 11, 9, 9, 20), 60)
+    assert any(s.program == "Co-located events" for s in w.running), "co-located talk should be in progress"
+    assert all(not s.is_block for s in w.running)
+    assert any(s.id == "1289780" for s in w.blocks), "Agentics Day umbrella belongs in blocks"
+    assert all(datetime(2026, 11, 9, 9, 20) < s.start <= datetime(2026, 11, 9, 10, 20) for s in w.upcoming)
+
+
+def test_whats_on_tuesday(agenda):
+    w = ag.whats_on(agenda, datetime(2026, 11, 10, 15, 0), 60)
+    assert any(s.id == "1236746" for s in w.running)
 
 
 def test_check_agenda_flags_overlap_and_missing(agenda):
@@ -129,9 +167,16 @@ def test_format_line_is_single_line(agenda):
         assert "\n" not in ag.fmt_line(s)
 
 
-def test_describe_mentions_tracks_and_days(agenda):
+def test_describe_lists_programs(agenda):
     text = ag.describe(agenda, CONFIG)
-    assert "2026-11-10 (Tue)" in text and "Security" in text
+    assert "2026-11-10 (Tue)" in text
+    assert "Main conference (" in text and "Co-located events (" in text
+    assert "Agentics Day: MCP + Agents" in text
+
+
+def test_parse_feeds():
+    feeds = parse_feeds("abc=Main, def = Colo ,ghi")
+    assert [(f.sessionize_id, f.program) for f in feeds] == [("abc", "Main"), ("def", "Colo"), ("ghi", "ghi")]
 
 
 def test_normalize_handles_empty_feed():

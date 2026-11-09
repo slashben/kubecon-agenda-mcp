@@ -9,13 +9,15 @@ from kubecon_agenda_mcp.feed import AgendaStore
 from kubecon_agenda_mcp.server import build_server
 from tests.test_agenda import CONFIG
 
-FIXTURE = json.loads((Path(__file__).parent / "fixture_feed.json").read_text())
+HERE = Path(__file__).parent
+MAIN = json.loads((HERE / "fixture_feed.json").read_text())
+COLOCATED = json.loads((HERE / "fixture_colocated.json").read_text())
 
 
 @pytest.fixture
 def store():
     s = AgendaStore(CONFIG)
-    s.load_static(FIXTURE)
+    s.load_static((MAIN, "Main conference"), (COLOCATED, "Co-located events"))
     return s
 
 
@@ -39,6 +41,14 @@ async def test_search_tool_finds_session(store):
     result = await mcp.call_tool("search_sessions", {"speaker": "Hirschberg"})
     text = str(result)
     assert "1236746" in text
+
+
+@pytest.mark.asyncio
+async def test_whats_on_groups_blocks(store):
+    mcp = build_server(CONFIG, store)
+    text = str(await mcp.call_tool("whats_on", {"at": "mon 9:20"}))
+    assert "Talks in progress" in text and "All-day blocks in progress" in text
+    assert "Agentics Day: MCP + Agents Hosted by CNCF" in text
 
 
 @pytest.mark.asyncio

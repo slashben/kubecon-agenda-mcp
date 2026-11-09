@@ -36,8 +36,9 @@ def build_server(config: EventConfig | None = None, store: AgendaStore | None = 
         version=__version__,
         website_url=REPO_URL,
         instructions=(
-            f"Community-run, read-only agenda for {config.name} ({config.city}), including the "
-            "co-located events. Not affiliated with CNCF or the Linux Foundation. "
+            f"Community-run, read-only agenda for {config.name} ({config.city}). Covers the main "
+            "conference, every talk of the CNCF-hosted co-located events and the Maintainer Summit. "
+            "Not affiliated with CNCF or the Linux Foundation. "
             f"All times are {config.timezone} local. Start with describe_event to learn the valid days, "
             "tracks and rooms, then search_sessions. Session ids from search results feed get_session and "
             f"check_agenda. Official schedule: {config.official_url}"
@@ -71,6 +72,7 @@ def build_server(config: EventConfig | None = None, store: AgendaStore | None = 
         project: str | None = None,
         level: str | None = None,
         include_breaks: bool = False,
+        include_offsite: bool = True,
         limit: int = 25,
     ) -> str:
         """
@@ -85,6 +87,7 @@ def build_server(config: EventConfig | None = None, store: AgendaStore | None = 
             project: CNCF project tag substring, e.g. "Cilium", "Falco", "Kubeflow".
             level: Audience level: Beginner, Advanced or Any.
             include_breaks: Also return breaks, lunches and registration blocks.
+            include_offsite: Set false to hide off-site sponsor events (separate registration, not at the venue).
             limit: Max lines to return (1-100).
         """
         agenda = await store.get()
@@ -100,6 +103,7 @@ def build_server(config: EventConfig | None = None, store: AgendaStore | None = 
                 project=project,
                 level=level,
                 include_breaks=include_breaks,
+                include_offsite=include_offsite,
             )
             hits = ag.search(agenda, q)
         except ValueError as e:
@@ -117,8 +121,10 @@ def build_server(config: EventConfig | None = None, store: AgendaStore | None = 
 
     @mcp.tool(
         description=(
-            "What is happening right now (event local time) and what starts within the next hour. "
-            "Pass `at` (e.g. 'tue 14:30' or '2026-11-10 14:30') to ask about another moment."
+            "What is happening right now (event local time) and what starts within the next hour, "
+            "split into talks in progress, talks starting soon, all-day blocks in progress (co-located days, "
+            "showcase floor) and off-site sponsor events. Pass `at` (e.g. 'tue 14:30' or '2026-11-10 14:30') "
+            "to ask about another moment."
         )
     )
     async def whats_on(at: str | None = None, lookahead_minutes: int = 60) -> str:
@@ -128,13 +134,20 @@ def build_server(config: EventConfig | None = None, store: AgendaStore | None = 
         except ValueError as e:
             _log("whats_on", rejected=True)
             return f"Bad time: {e}"
-        running, upcoming = ag.whats_on(agenda, when, lookahead_minutes)
-        _log("whats_on", running=len(running), upcoming=len(upcoming))
+        w = ag.whats_on(agenda, when, lookahead_minutes)
+        _log("whats_on", running=len(w.running), upcoming=len(w.upcoming), blocks=len(w.blocks))
+
+        def section(title: str, items: list) -> list[str]:
+            lines = [f"{title} ({len(items)}):"]
+            lines.extend(ag.fmt_line(s) for s in items) if items else lines.append("  nothing")
+            return lines
+
         out = [f"At {when:%a %d %b %H:%M} ({config.timezone}):"]
-        out.append(f"Running now ({len(running)}):")
-        out.extend(ag.fmt_line(s) for s in running) if running else out.append("  nothing")
-        out.append(f"Starting within {lookahead_minutes} min ({len(upcoming)}):")
-        out.extend(ag.fmt_line(s) for s in upcoming) if upcoming else out.append("  nothing")
+        out += section("Talks in progress", w.running)
+        out += section(f"Talks starting within {lookahead_minutes} min", w.upcoming)
+        out += section("All-day blocks in progress", w.blocks)
+        if w.offsite:
+            out.append(f"Off-site sponsor events in progress: {len(w.offsite)} (search with track='Sponsor-hosted' for details)")
         return "\n".join(out)
 
     @mcp.tool(description="Find speakers by name or company and list their sessions.")
