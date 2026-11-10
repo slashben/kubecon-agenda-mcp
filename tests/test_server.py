@@ -61,7 +61,7 @@ async def test_http_endpoints(store):
     )
     async with app.router.lifespan_context(app):
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as c:
-            r = await c.get("/healthz")
+            r = await c.get("/health")
             assert r.status_code == 200 and r.json()["ok"]
             r = await c.get("/")
             assert "MCP endpoint" in r.text

@@ -236,8 +236,8 @@ def build_server(config: EventConfig | None = None, store: AgendaStore | None = 
             f"Source: {REPO_URL}\n"
         )
 
-    @mcp.custom_route("/healthz", methods=["GET"])
-    async def healthz(request: Request) -> JSONResponse:
+    @mcp.custom_route("/health", methods=["GET"])
+    async def health(request: Request) -> JSONResponse:
         agenda = await store.get()
         return JSONResponse({"ok": True, "sessions": len(agenda.sessions), "version": __version__})
 
