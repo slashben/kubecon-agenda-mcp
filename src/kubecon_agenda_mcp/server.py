@@ -6,13 +6,15 @@ scale-to-zero function/container platform (Cloud Run, Lambda, Fly...).
 
 from __future__ import annotations
 
+import hashlib
 import json
+import re
 import logging
 import os
 from datetime import datetime
 
 import uvicorn
-from mcp.server.mcpserver import MCPServer
+from mcp.server.mcpserver import Context, MCPServer
 from mcp.server.transport_security import TransportSecuritySettings
 from starlette.requests import Request
 from starlette.responses import JSONResponse, PlainTextResponse
@@ -24,6 +26,32 @@ from .feed import AgendaStore
 log = logging.getLogger("kubecon_agenda_mcp")
 
 REPO_URL = "https://github.com/slashben/kubecon-agenda-mcp"
+
+# Salt for the per-client hash in tool-call logs. The hash lets us count distinct
+# clients without storing IPs or user agents; without a salt the hash is still
+# one-way but guessable, so deployments should set LOG_SALT.
+LOG_SALT = os.environ.get("LOG_SALT", "")
+
+
+def client_fields(ctx: Context | None) -> dict[str, object]:
+    """Anonymous client identity for log lines: a salted hash of IP + user agent,
+    the coarse agent family and the MCP session id when the client sends one.
+    No raw IP or user agent is ever logged."""
+    out: dict[str, object] = {}
+    if ctx is None:
+        return out
+    try:
+        headers = ctx.headers or {}
+    except Exception:  # noqa: BLE001 - no HTTP request behind this call (tests, stdio)
+        return out
+    ip = (headers.get("x-forwarded-for") or "").split(",")[0].strip()
+    ua = headers.get("user-agent", "")
+    out["client"] = hashlib.sha256(f"{LOG_SALT}|{ip}|{ua}".encode()).hexdigest()[:12]
+    # Coarse agent family only (e.g. "claude-code", "Claude-User", "python-httpx").
+    out["agent"] = re.split(r"[/ (]", ua, 1)[0][:40] if ua else None
+    if sid := headers.get("mcp-session-id"):
+        out["session"] = sid[:16]
+    return out
 
 
 def build_server(config: EventConfig | None = None, store: AgendaStore | None = None) -> MCPServer:
@@ -45,13 +73,14 @@ def build_server(config: EventConfig | None = None, store: AgendaStore | None = 
         ),
     )
 
-    def _log(tool: str, **fields: object) -> None:
-        # One JSON line per call for log-based metrics. Query text is never logged.
-        log.info(json.dumps({"event": "tool_call", "tool": tool, **fields}))
+    def _log(tool: str, ctx: Context | None = None, **fields: object) -> None:
+        # One JSON line per call for log-based metrics. Query text is never logged;
+        # the client is identified only by a salted hash (see client_fields).
+        log.info(json.dumps({"event": "tool_call", "tool": tool, **client_fields(ctx), **fields}))
 
     @mcp.tool(description="Event overview: name, local time right now, valid days, tracks, rooms and CNCF project tags. Call this first.")
-    async def describe_event() -> str:
-        _log("describe_event")
+    async def describe_event(ctx: Context) -> str:
+        _log("describe_event", ctx)
         return ag.describe(await store.get(), config)
 
     @mcp.tool(
@@ -74,6 +103,7 @@ def build_server(config: EventConfig | None = None, store: AgendaStore | None = 
         include_breaks: bool = False,
         include_offsite: bool = True,
         limit: int = 25,
+        ctx: Context = None,  # type: ignore[assignment]
     ) -> str:
         """
         Args:
@@ -107,16 +137,16 @@ def build_server(config: EventConfig | None = None, store: AgendaStore | None = 
             )
             hits = ag.search(agenda, q)
         except ValueError as e:
-            _log("search_sessions", rejected=True)
+            _log("search_sessions", ctx, rejected=True)
             return f"Bad filter: {e}"
         used = [k for k, v in vars(q).items() if v not in (None, False, "")]
-        _log("search_sessions", filters=used, matches=len(hits))
+        _log("search_sessions", ctx, filters=used, matches=len(hits))
         return ag.fmt_lines(hits, limit=max(1, min(limit, 100)))
 
     @mcp.tool(description="Full details for one session id: abstract, speakers, room, time, level, project tags and any slides/repo links.")
-    async def get_session(id: str) -> str:
+    async def get_session(id: str, ctx: Context = None) -> str:  # type: ignore[assignment]
         s = (await store.get()).by_id(id.strip())
-        _log("get_session", found=s is not None)
+        _log("get_session", ctx, found=s is not None)
         return ag.fmt_detail(s) if s else f"No session with id {id}."
 
     @mcp.tool(
@@ -127,15 +157,15 @@ def build_server(config: EventConfig | None = None, store: AgendaStore | None = 
             "to ask about another moment."
         )
     )
-    async def whats_on(at: str | None = None, lookahead_minutes: int = 60) -> str:
+    async def whats_on(at: str | None = None, lookahead_minutes: int = 60, ctx: Context = None) -> str:  # type: ignore[assignment]
         agenda = await store.get()
         try:
             when = _parse_moment(at, agenda, config)
         except ValueError as e:
-            _log("whats_on", rejected=True)
+            _log("whats_on", ctx, rejected=True)
             return f"Bad time: {e}"
         w = ag.whats_on(agenda, when, lookahead_minutes)
-        _log("whats_on", running=len(w.running), upcoming=len(w.upcoming), blocks=len(w.blocks))
+        _log("whats_on", ctx, running=len(w.running), upcoming=len(w.upcoming), blocks=len(w.blocks))
 
         def section(title: str, items: list) -> list[str]:
             lines = [f"{title} ({len(items)}):"]
@@ -152,10 +182,10 @@ def build_server(config: EventConfig | None = None, store: AgendaStore | None = 
         return "\n".join(out)
 
     @mcp.tool(description="Find speakers by name or company and list their sessions.")
-    async def find_speaker(name: str, limit: int = 5) -> str:
+    async def find_speaker(name: str, limit: int = 5, ctx: Context = None) -> str:  # type: ignore[assignment]
         agenda = await store.get()
         found = ag.find_speakers(agenda, name, limit=max(1, min(limit, 20)))
-        _log("find_speaker", matches=len(found))
+        _log("find_speaker", ctx, matches=len(found))
         if not found:
             return f"No speaker matching {name!r}."
         return "\n\n".join(ag.fmt_speaker(sp, ag.sessions_of(agenda, sp)) for sp in found)
@@ -167,12 +197,12 @@ def build_server(config: EventConfig | None = None, store: AgendaStore | None = 
             "with too little walking time."
         )
     )
-    async def check_agenda(session_ids: list[str], min_gap_minutes: int = 10) -> str:
+    async def check_agenda(session_ids: list[str], min_gap_minutes: int = 10, ctx: Context = None) -> str:  # type: ignore[assignment]
         if not session_ids:
             return "No session ids given. Pass the ids from search_sessions results."
         agenda = await store.get()
         picked, issues = ag.check_agenda(agenda, session_ids, min_gap_minutes)
-        _log("check_agenda", picked=len(picked), issues=len(issues))
+        _log("check_agenda", ctx, picked=len(picked), issues=len(issues))
         out = [ag.fmt_lines(picked)]
         if issues:
             out.append("Issues:")

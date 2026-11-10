@@ -176,6 +176,7 @@ docker run -p 8080:8080 kubecon-agenda-mcp
 | `EVENT_TIMEZONE` | `America/Denver` | Used for "now" |
 | `EVENT_URL` | LF schedule page | Linked from tool output |
 | `CACHE_TTL_SECONDS` | `600` | How long the feed is cached in memory |
+| `LOG_SALT` | empty | Salt for the per-client hash in tool-call logs; set to a random secret in deployments |
 | `PORT` | `8080` | Listen port |
 
 ### Deploy to Google Cloud Run
@@ -200,7 +201,9 @@ Search is a ranked AND over terms: a hit in the title outranks a tag, which outr
 Access notes LF appends to titles ("| ALL ACCESS PASS REQUIRED") are split into a separate field.
 
 No user data is stored. Tool calls are logged as one JSON line each (tool name, filter names used,
-result counts) for usage metrics; query text is never logged.
+result counts) for usage metrics; query text is never logged. To count distinct clients, each line
+carries a truncated SHA-256 of client IP + user agent, salted with `LOG_SALT`, plus the coarse
+agent family (e.g. `claude-code`). Raw IPs and user agents are not written by the application.
 
 ## License
 
